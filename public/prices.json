@@ -1,1 +1,239 @@
-{"checkedAt":null,"items":{}}
+{
+ "checkedAt": "2026-10-27T09:55:39.847Z",
+ "items": {
+  "1": {
+   "offers": [
+    {
+     "store": "GameLoot",
+     "price": 20000,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=OnePlus 13R 5G&prds=catalogid:11723113366906517999,productid:8481315099261672485,headlineOfferDocid:18004815289618588737,imageDocid:11994072605776689123,rds:PC_14314301678392605408|PROD_PC_14314301678392605408,gpcid:14314301678392605408,mid:576462915866085224,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "",
+     "checkedAt": 1793094908852
+    },
+    {
+     "store": "93mobiles",
+     "price": 27999,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=OnePlus 13R 5G&prds=catalogid:7583845972079650093,productid:5828654965323906501,headlineOfferDocid:2341659508954326292,imageDocid:17246980680709102880,rds:PC_14396113235903005638|PROD_PC_14396113235903005638,gpcid:14396113235903005638,mid:576462567131885887,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "Free delivery",
+     "checkedAt": 1793094908852
+    },
+    {
+     "store": "GudFast",
+     "price": 32999,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=OnePlus 13R 5G&prds=catalogid:6737114788288396029,productid:12807544175680639153,headlineOfferDocid:4184197281248669626,imageDocid:7065648520530004343,rds:PC_11128901567194075919|PROD_PC_11128901567194075919,gpcid:11128901567194075919,mid:576462815347211341,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "Free delivery by Fri",
+     "checkedAt": 1793094908852
+    },
+    {
+     "store": "OnePlus Official Store",
+     "price": 39999,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=OnePlus 13R 5G&prds=catalogid:994708136022969918,productid:3057613876580211488,headlineOfferDocid:11904831204603643990,imageDocid:1161583109263904462,rds:PC_6264243941631134561|PROD_PC_6264243941631134561,gpcid:6264243941631134561,mid:576462892675551289,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "Free delivery",
+     "checkedAt": 1793094908852
+    }
+   ],
+   "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSJrInh8GI3JCRBAh3u2y6lyJ2MUgVsPwh7hyib6myB3lPssRgf4VBlCGPD79mW-I_riSOIsVgFDRVFUV6ZVP_7ba0yvU-udQ"
+  },
+  "2": {
+   "offers": [
+    {
+     "store": "Befach.com",
+     "price": 31103,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=POCO F7 5G&prds=catalogid:15674245605328262830,productid:4447202314173459448,headlineOfferDocid:6582835184263739676,imageDocid:11820306052707467011,gpcid:10039045850818529168,mid:576462575016950031,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "",
+     "checkedAt": 1793094911767
+    },
+    {
+     "store": "ubuy.co.in",
+     "price": 49158,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=POCO F7 5G&prds=catalogid:5287576223535138044,productid:9842410285524189673,headlineOfferDocid:12924421018908747734,imageDocid:5545531069588026183,rds:PC_17922157528084012708|PROD_PC_17922157528084012708,gpcid:17922157528084012708,mid:576462913759195581,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "",
+     "checkedAt": 1793094911767
+    }
+   ],
+   "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTi8QOcjhBsPFgVVhwa561vO1lOh7aPkAJ_79gYs5hEkayTG19Z0oobyYGlN2n0ezwpiOdfAev_f1HAtdontlVoMgAzKinUKVsajzod2aslcClzEGVNaT02NqU"
+  },
+  "3": {
+   "offers": [
+    {
+     "store": "Maxbhi",
+     "price": 1899,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Samsung Galaxy A56 5G&prds=productid:230369002076907315,headlineOfferDocid:230369002076907315,imageDocid:15786531349484951286,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "Free delivery by Thu",
+     "checkedAt": 1793094913459
+    },
+    {
+     "store": "ubuy.co.in",
+     "price": 2648,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Samsung Galaxy A56 5G&prds=productid:6553222786124400305,headlineOfferDocid:6553222786124400305,imageDocid:14144675991020416051,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "",
+     "checkedAt": 1793094913459
+    }
+   ],
+   "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTEQHYDFhB6-Ijvu7Wx0CKodqkASM6acogs7cW2onXk6HJshhZ5dKbpJDufz5WQeWYJtkNAETkc0VJDmDarji_-L0n2FML3JA"
+  },
+  "4": {
+   "offers": [],
+   "img": ""
+  },
+  "5": {
+   "offers": [
+    {
+     "store": "FoneZone.com",
+     "price": 26561,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Redmi Note 14 Pro+ 5G&prds=catalogid:4350277953327454993,productid:991033309342447251,headlineOfferDocid:15778042656985038518,imageDocid:7010212539286286621,rds:PC_12181055442416756639|PROD_PC_12181055442416756639,gpcid:12181055442416756639,mid:576462912484407182,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "",
+     "checkedAt": 1793094923315
+    },
+    {
+     "store": "Amazon.in",
+     "price": 27042,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Redmi Note 14 Pro+ 5G&prds=catalogid:5795130216171287162,productid:6719940199623731446,headlineOfferDocid:12290530706572493161,imageDocid:6754235484413355475,gpcid:297879886303177440,mid:576462914951737802,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "Free delivery",
+     "checkedAt": 1793094923315
+    },
+    {
+     "store": "Manik Mobile Shopee",
+     "price": 28999,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Redmi Note 14 Pro+ 5G&prds=productid:2902320952047261951,headlineOfferDocid:2902320952047261951,imageDocid:4686622999648128794,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "Free delivery",
+     "checkedAt": 1793094923315
+    },
+    {
+     "store": "FoneZone.me",
+     "price": 29478,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Redmi Note 14 Pro+ 5G&prds=productid:6268934540787001780,headlineOfferDocid:6268934540787001780,imageDocid:12652039024990232131,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "Free delivery",
+     "checkedAt": 1793094923315
+    }
+   ],
+   "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQpcx6vycETD-Im3WMucgzQMcqNs5iBiuWnjTHcZu9j8nbmfSeAnmN2ogJEgH5GTWcY9TerUpqQTaj2R6Pzqmzr_X5VPV25QFt-0dqmdAmwJoLbpGaE5zIY"
+  },
+  "7": {
+   "offers": [
+    {
+     "store": "Purplle.com - Beauty Shop",
+     "price": 209,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Minimalist 10% Niacinamide face serum 30ml&prds=productid:7937246305907618986,headlineOfferDocid:7937246305907618986,imageDocid:11279403900632942591,rds:PC_10498015940641548004|PROD_PC_10498015940641548004,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "Free delivery",
+     "checkedAt": 1793094925315
+    },
+    {
+     "store": "Purplle.com - Purplle Shopping",
+     "price": 209,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Minimalist 10% Niacinamide face serum 30ml&prds=productid:14384262853180038184,headlineOfferDocid:14384262853180038184,imageDocid:11279403900632942591,rds:PC_10498015940641548004|PROD_PC_10498015940641548004,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "Free delivery",
+     "checkedAt": 1793094925315
+    },
+    {
+     "store": "Purplle.com - Purplle- MP",
+     "price": 209,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Minimalist 10% Niacinamide face serum 30ml&prds=productid:1831195066297151494,headlineOfferDocid:1831195066297151494,imageDocid:11279403900632942591,rds:PC_10498015940641548004|PROD_PC_10498015940641548004,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "Free delivery",
+     "checkedAt": 1793094925315
+    },
+    {
+     "store": "Zepto",
+     "price": 225,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Minimalist 10% Niacinamide face serum 30ml&prds=productid:4377754738129219113,headlineOfferDocid:4377754738129219113,imageDocid:17553691418754406039,rds:PC_10498015940641548004|PROD_PC_10498015940641548004,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "Free delivery within 10min",
+     "checkedAt": 1793094925315
+    }
+   ],
+   "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQEKsePPiYChNY31jiilArvkoss22UdmADE_IxoKBhw0rNgmtwb9IqBR5NFfRrnJtQSWY4SKeu6LK6dgqDnyuPBHKoP8PAzlXOq0Tp7nZ-Df8uOP2L5EPnoew"
+  },
+  "8": {
+   "offers": [
+    {
+     "store": "Raja Ram Jain Cosmetics Store",
+     "price": 322,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Cetaphil Gentle Skin Cleanser 125ml&prds=productid:4495921897507226808,headlineOfferDocid:4495921897507226808,imageDocid:13440790387584216529,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "",
+     "checkedAt": 1793094927424
+    },
+    {
+     "store": "samyaksupermart.com",
+     "price": 338,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Cetaphil Gentle Skin Cleanser 125ml&prds=productid:5619325667461156310,headlineOfferDocid:5619325667461156310,imageDocid:4709273826396670520,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "",
+     "checkedAt": 1793094927424
+    },
+    {
+     "store": "Purplle.com - Purplle- MP",
+     "price": 353,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Cetaphil Gentle Skin Cleanser 125ml&prds=catalogid:5822507643271440949,productid:196009804447005863,headlineOfferDocid:745993137826567185,imageDocid:14900038714776718977,rds:PC_13356187882338240108|PROD_PC_13356187882338240108,gpcid:15531738387187126332,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "Free delivery",
+     "checkedAt": 1793094927424
+    },
+    {
+     "store": "Purplle.com - Purplle Beauty Shop",
+     "price": 353,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Cetaphil Gentle Skin Cleanser 125ml&prds=catalogid:12016181495691884126,productid:936021377270653108,headlineOfferDocid:10348938868387578837,imageDocid:14900038714776718977,gpcid:4381080347508205631,mid:576462895446700462,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "Free delivery",
+     "checkedAt": 1793094927424
+    }
+   ],
+   "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSsp8hrRAIU9hApZJOQDIeaTPRwYrzWNYgC_ddGE5NShu-MVVYuFuDH76LGxYB68KVK0BXEEhzz"
+  },
+  "9": {
+   "offers": [
+    {
+     "store": "ubuy.co.in",
+     "price": 4410,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Neutrogena Ultra Sheer Dry-Touch Sunscreen SPF 50+ 88ml&prds=productid:14394153469093274936,headlineOfferDocid:14394153469093274936,imageDocid:5243446901034924373,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "",
+     "checkedAt": 1793094930491
+    },
+    {
+     "store": "GoSupps.com",
+     "price": 7133,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Neutrogena Ultra Sheer Dry-Touch Sunscreen SPF 50+ 88ml&prds=productid:17775355695007109442,headlineOfferDocid:17775355695007109442,imageDocid:17819497923052697741,rds:PC_7220521087754111852|PROD_PC_7220521087754111852,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "",
+     "checkedAt": 1793094930491
+    }
+   ],
+   "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTUzy708SizB7yKmz9dNBBhuBIPZYQWEZ0IYUY4D3bnVPesHhJCAJ4hSAiEXCv89RUxiVB_dSBQyjAFyaCAKanG4D8McWPYPPtiBZVR0omQ91D1eXXpWUNQTQ"
+  },
+  "10": {
+   "offers": [
+    {
+     "store": "Purplle.com - Purplle Shop",
+     "price": 673,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Cetaphil Moisturising Cream 80g&prds=productid:8001963135974121342,headlineOfferDocid:8001963135974121342,imageDocid:2448454484593703646,rds:PC_674962581010816902|PROD_PC_674962581010816902,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "Free delivery",
+     "checkedAt": 1793094932747
+    },
+    {
+     "store": "Deals999",
+     "price": 1062,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Cetaphil Moisturising Cream 80g&prds=productid:14380632061111690368,headlineOfferDocid:14380632061111690368,imageDocid:16538941392848251883,rds:PC_6283663080052295103|PROD_PC_6283663080052295103,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "Free delivery by Mon",
+     "checkedAt": 1793094932747
+    },
+    {
+     "store": "Looknstyle",
+     "price": 1489,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Cetaphil Moisturising Cream 80g&prds=productid:3766403139588157978,headlineOfferDocid:3766403139588157978,imageDocid:7255559220723633004,rds:PC_5370067209622559400|PROD_PC_5370067209622559400,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "",
+     "checkedAt": 1793094932747
+    },
+    {
+     "store": "Dermatics India",
+     "price": 1549,
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Cetaphil Moisturising Cream 80g&prds=productid:12621460443603493984,headlineOfferDocid:12621460443603493984,imageDocid:604423071867900892,pvt:hg&hl=en&gl=in&udm=28",
+     "delivery": "Free delivery",
+     "checkedAt": 1793094932747
+    }
+   ],
+   "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTml5HA62DhLeVL36b9Fje4xw91lFCWUUytbhcUi7wXSHzEO8qNPKFbHNOx9DfnoGOsVaMXMNSGlibVWlC9D4c9krv69l3mycedckDGIwx26PN08bzlwzie"
+  },
+  "11": {
+   "offers": [],
+   "img": ""
+  },
+  "12": {
+   "offers": [],
+   "img": ""
+  }
+ }
+}
