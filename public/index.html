@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BuyWise India – Buy the right product at the right price</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F6FA;--card:#fff;--ink:#131A33;--mute:#5B6480;--line:#E1E5EF;--pri:#2B3FD6;--on:#fff;--soft:#E8EBFD;--good:#0B8F63;--warn:#9A6212;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1224;--card:#171C33;--ink:#EDF0FA;--mute:#9AA3C0;--line:#262D4A;--pri:#7C8BFF;--on:#0E1224;--soft:#222850;--good:#3DD9A0;--warn:#F0B95A}}
+:root[data-theme="dark"]{--bg:#0E1224;--card:#171C33;--ink:#EDF0FA;--mute:#9AA3C0;--line:#262D4A;--pri:#7C8BFF;--on:#0E1224;--soft:#222850;--good:#3DD9A0;--warn:#F0B95A}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 "Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+button,input{font:inherit;color:inherit}button{cursor:pointer}
+:focus-visible{outline:3px solid var(--pri);outline-offset:2px}
+.wrap{max-width:1020px;margin:0 auto;padding:0 18px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+.logo{font-weight:800;font-size:20px;letter-spacing:-.02em}.logo i{font-style:normal;color:var(--pri)}
+.ghost{background:none;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-weight:500}
+.ghost b{background:var(--pri);color:var(--on);border-radius:99px;padding:0 7px;margin-left:6px;font-size:12px}
+h1{font-size:clamp(28px,5.4vw,48px);line-height:1.08;letter-spacing:-.03em;margin:26px 0 10px;font-weight:800;max-width:14em}
+.lead{color:var(--mute);max-width:36em;margin:0 0 20px}
+.sbox{display:flex;gap:8px;background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:8px;box-shadow:0 6px 24px rgba(20,30,80,.07)}
+.sbox input{flex:1;min-width:0;border:0;background:none;padding:10px 12px;font-size:16px}
+.sbox input:focus-visible{outline:none}.sbox:focus-within{border-color:var(--pri)}
+.go{background:var(--pri);color:var(--on);border:0;border-radius:11px;padding:0 20px;font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px}
+.chip{background:var(--soft);border:0;border-radius:99px;padding:6px 13px;font-size:13px}
+.intent{margin:26px 0 12px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;color:var(--mute);font-size:14px}
+.tag{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:2px 10px;color:var(--ink);font-weight:500}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:14px;display:grid;gap:18px}
+@media(min-width:760px){.card{grid-template-columns:1.25fr 1fr}}
+.card.first{border-color:var(--pri);box-shadow:0 8px 28px rgba(43,63,214,.14)}
+.hd{display:flex;gap:12px;align-items:flex-start;justify-content:space-between}
+.hd h3{margin:0;font-size:19px;letter-spacing:-.01em}.sp{color:var(--mute);font-size:13px;margin:2px 0 8px}
+.bd{display:inline-block;font-size:12px;font-weight:700;border-radius:6px;padding:1px 8px;margin:0 6px 4px 0;background:var(--soft);color:var(--pri)}
+.bd.g{background:transparent;border:1px solid var(--good);color:var(--good)}
+.score{text-align:center;min-width:58px}.score strong{display:block;font-size:26px;line-height:1;font-weight:800;color:var(--pri)}.score span{font-size:11px;color:var(--mute)}
+.why{background:var(--bg);border-radius:12px;padding:10px 12px;font-size:14px;margin:8px 0}
+.why b{color:var(--good)}
+details{font-size:13px;color:var(--mute)}summary{cursor:pointer;padding:4px 0}
+.bar{display:grid;grid-template-columns:96px 1fr 38px;gap:8px;align-items:center;margin:3px 0}.bar i{display:block;height:6px;background:var(--pri);border-radius:3px}.bar span:nth-child(2){background:var(--line);border-radius:3px;height:6px}
+.of{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
+.of:last-of-type{border-bottom:0}.of small{color:var(--mute);font-size:12px}.of.best .pr{color:var(--good)}
+.pr{font-weight:800;font-size:17px}
+.buy{background:var(--pri);color:var(--on);border:0;border-radius:9px;padding:6px 12px;font-weight:700;font-size:13px;margin-top:2px}
+.rt{display:flex;align-items:center;justify-content:space-between;color:var(--mute);font-size:13px;margin-bottom:2px}
+.al{display:flex;gap:6px;align-items:center;margin-top:10px;font-size:13px;color:var(--mute);flex-wrap:wrap}
+.al input[type=number]{width:96px;border:1px solid var(--line);border-radius:8px;padding:5px 8px;background:var(--card)}
+.al button{border:1px solid var(--pri);color:var(--pri);background:none;border-radius:8px;padding:5px 10px;font-weight:700}
+.cmp{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--mute);margin-top:10px}
+#cbar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);border-radius:14px;padding:10px 14px;display:flex;gap:12px;align-items:center;box-shadow:0 8px 30px rgba(0,0,0,.3);z-index:5}
+#cbar[hidden]{display:none}#cbar button{border:0;border-radius:9px;padding:6px 12px;font-weight:700;background:var(--pri);color:var(--on)}
+dialog{border:0;border-radius:18px;padding:22px;max-width:min(680px,92vw);width:100%;background:var(--card);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(10,14,35,.55)}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.x{float:right;background:none;border:0;font-size:22px;line-height:1}
+.empty{padding:36px 10px;text-align:center;color:var(--mute)}
+footer{color:var(--mute);font-size:12.5px;padding:24px 0 90px;max-width:46em}
+.buy{display:inline-block;text-decoration:none}.hit{background:var(--good);color:var(--on);border-radius:12px;padding:10px 14px;font-weight:700;margin-bottom:8px}.who{color:var(--mute);font-size:12.5px;margin-right:10px}.hit[hidden]{display:none}
+.chat{display:flex;flex-direction:column;gap:10px;margin:18px 0 4px}.bub{max-width:82%;padding:10px 14px;border-radius:14px;font-size:15px;line-height:1.45}.bub.ag{background:var(--card);border:1px solid var(--line);align-self:flex-start}.bub.me{background:var(--pri);color:var(--on);align-self:flex-end}.opts{display:flex;flex-wrap:wrap;gap:8px}#rs{margin-bottom:8px;border:1px solid var(--line);background:none}
+.card{grid-template-columns:1fr}.im img,.ph{width:100%;max-width:140px;aspect-ratio:1;object-fit:contain;border-radius:10px;background:#fff;border:1px solid var(--line)}.ph{display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:800;color:var(--mute)}
+.mid h3{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.fit{font-size:12px;font-weight:700;background:var(--soft);color:var(--pri);border-radius:6px;padding:1px 8px}.spec{color:var(--mute);font-size:13.5px;line-height:1.55;margin:4px 0 8px}
+.lp{display:flex;justify-content:space-between;align-items:baseline;font-weight:700}.lp strong{font-size:30px;color:var(--pri);letter-spacing:-.02em;font-weight:800}
+.buy.big{display:block;text-align:center;background:var(--ink);color:var(--bg);padding:12px;border-radius:8px;margin:8px 0 14px;font-size:15px}
+.sr{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;padding:9px 0;border-top:1px solid var(--line);font-size:14px}.sn{font-weight:700}.sd{color:var(--mute);font-size:12.5px}.sp2{font-weight:700;color:var(--ink);text-decoration:none}.sp2.lo{color:var(--pri)}.sp2:hover{text-decoration:underline}
+@media(min-width:640px){.card{grid-template-columns:120px 1fr}.pn{grid-column:1/-1}}
+@media(min-width:1000px){.card{grid-template-columns:140px 1fr 340px}.pn{grid-column:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="logo">Buy<i>Wise</i> India</div><span style="flex:1"></span><span class="who" id="who">Alerts saved on this device</span><button class="ghost" id="alBtn">Price alerts <b id="ac">0</b></button></header>
+<div id="hit" class="hit" hidden></div>
+<section>
+<h1>Tell us what you need. We'll show what fits.</h1>
+<p class="lead">Describe your budget and priorities in plain words. BuyWise compares sellers, explains the trade-offs and helps you buy with confidence.</p>
+<div class="sbox"><input id="q" aria-label="What are you looking for?" placeholder="e.g. a phone for photos under ₹30k" autocomplete="off"><button class="go" id="go">Ask BuyWise</button></div>
+<div class="chips" id="ex"></div><button class="chip" id="rs">Start over</button>
+</section>
+<div class="chat" id="chat" aria-live="polite"></div>
+<section id="intent" class="intent"></section>
+<section id="res"></section>
+<footer>Prices come from Google Shopping at the time shown and can differ at the store, so check the final price there. Feature scores are team ratings, not lab tests. Product photos are thumbnails from Google Shopping. BuyWise may earn a commission when you buy through its links; this never changes the ranking. Sponsored placements, if added later, will be labelled. Anonymous usage data and your search text are logged for this class project. Your search text is also processed by Google Gemini (free tier), which may use it to improve Google products, so please do not type personal information.</footer>
+</div>
+<div id="cbar" hidden><span id="cn"></span><button id="cgo">Compare</button></div>
+<dialog id="dlg"></dialog>
+<script>
+const P=[
+{id:1,c:'phone',n:'OnePlus 13R',s:'6.78" 120Hz AMOLED · 6000mAh · Snapdragon 8 Gen 3',cam:8,bat:9,perf:9,dis:9,por:4,avg:0,o:[]},
+{id:2,c:'phone',n:'POCO F7 5G',s:'6.83" 120Hz AMOLED · 7550mAh · Snapdragon 8s Gen 4',cam:6,bat:10,perf:9,dis:8,por:3,avg:0,o:[]},
+{id:3,c:'phone',n:'Samsung Galaxy A56 5G',s:'6.7" 120Hz Super AMOLED · 5000mAh · 50MP main camera',cam:8,bat:7,perf:6,dis:9,por:5,avg:0,o:[]},
+{id:4,c:'phone',n:'Nothing Phone (3a)',s:'6.77" 120Hz AMOLED · 5000mAh · 50MP + telephoto',cam:8,bat:7,perf:6,dis:9,por:5,avg:0,o:[]},
+{id:5,c:'phone',n:'Redmi Note 14 Pro+ 5G',s:'6.67" 120Hz AMOLED · 6200mAh · 200MP main camera',cam:8,bat:9,perf:6,dis:9,por:4,avg:0,o:[]},
+{id:7,c:'beauty',n:'Minimalist 10% Niacinamide Serum',s:'Face serum · 30ml · for oily and acne-prone skin',perf:8,skn:7,por:9,avg:0,o:[]},
+{id:8,c:'beauty',n:'Cetaphil Gentle Skin Cleanser',s:'Face wash · 125ml · for sensitive skin',perf:6,skn:10,por:7,avg:0,o:[]},
+{id:9,c:'beauty',n:'Neutrogena Ultra Sheer Sunscreen SPF 50+',s:'Sunscreen · 88ml · dry-touch finish',perf:8,skn:7,por:7,avg:0,o:[]},
+{id:10,c:'beauty',n:'Cetaphil Moisturising Cream',s:'Moisturiser · 80g · for dry and sensitive skin',perf:7,skn:10,por:6,avg:0,o:[]},
+{id:11,c:'beauty',n:'Dot & Key Watermelon Sunscreen SPF 50',s:'Sunscreen · cooling gel texture',perf:7,skn:7,por:8,avg:0,o:[]},
+{id:12,c:'beauty',n:'Simple Refreshing Facial Wash',s:'Face wash · for sensitive skin',perf:5,skn:9,por:7,avg:0,o:[]}];
+const CK={phone:['cam','bat','perf','dis','por'],laptop:['bat','perf','dis','por'],tv:['perf','dis'],audio:['bat','perf','por'],watch:['bat','perf','dis','por'],beauty:['perf','skn','por']},CN={phone:'Smartphone',laptop:'Laptop',tv:'TV',audio:'Audio',watch:'Smartwatch',beauty:'Beauty'};
+const TR={'Amazon.in':13,'Flipkart':12,'Croma':13,'Nykaa':13,'Reliance Digital':13,'Tata CLiQ':12};
+const ST={'Amazon.in':'https://www.amazon.in/s?k=','Flipkart':'https://www.flipkart.com/search?q=','Croma':'https://www.croma.com/searchB?q=','Nykaa':'https://www.nykaa.com/search/result/?q=','Purplle':'https://www.purplle.com/search?q='};
+const link=(st,n)=>(ST[st]||'https://www.google.com/search?q=')+encodeURIComponent(n),SM=()=>window.claude?claude.use('sample'):Promise.resolve(null);
+const AT={skn:'skin-friendliness',cam:'camera',bat:'battery life',perf:'performance',dis:'display',por:'portability'};
+const KW=[[/camera|photo/i,'cam'],[/battery|backup|long.?lasting/i,'bat'],[/gaming|performance|fast|speed|editing/i,'perf'],[/display|screen|amoled|oled/i,'dis'],[/light|portable|compact|travel|slim/i,'por'],[/student|college/i,['bat','por']],[/skin|sensitive|gentle|dermat/i,'skn']];
+const $=s=>document.querySelector(s),inr=n=>'₹'+n.toLocaleString('en-IN');
+const SID=(()=>{try{let s=sessionStorage.bw_sid;if(!s){s=Math.random().toString(36).slice(2)+Date.now().toString(36);sessionStorage.bw_sid=s}return s}catch(e){return 'x'}})(),ev=(t,d)=>{try{navigator.sendBeacon('/api/event',new Blob([JSON.stringify({sid:SID,type:t,data:d})],{type:'application/json'}))}catch(e){}};
+let cmp=new Set(),last=[],mem=[],DB=null,UID=null,FORCE=null,hist=[],asked=0;
+function num(v,u){v=parseFloat(String(v).replace(/,/g,''));u=(u||'').toLowerCase();return u==='k'?v*1e3:/^l/.test(u)?v*1e5:v}
+function parse(q){
+ let B=null,m=q.match(/(?:under|below|within|upto|up to|less than|<)\s*₹?\s*(\d[\d,.]*)\s*(k|lakh|lac|l)?\b/i)||q.match(/₹\s*(\d[\d,.]*)\s*(k|lakh|lac|l)?\b/i)||q.match(/\b(\d+)\s*(k)\b/i);
+ if(m)B=num(m[1],m[2]);
+ const cat=/laptop|notebook/i.test(q)?'laptop':/\btvs?\b|television/i.test(q)?'tv':/earbud|headphone|earphone|neckband|tws|audio/i.test(q)?'audio':/watch|band\b|wearable/i.test(q)?'watch':/sunscreen|moisturi[sz]er|serum|cosmetic|makeup|skincare|skin care|lipstick|shampoo|face ?wash|cleanser|beauty/i.test(q)?'beauty':'phone',pri=[];
+ KW.forEach(([r,k])=>{if(r.test(q))[].concat(k).forEach(x=>{if(!pri.includes(x))pri.push(x)})});
+ return{cat,B,pri:pri.filter(k=>CK[cat].includes(k))};
+}
+function rank(it){
+ const list=[];
+ P.filter(p=>p.c===it.cat&&p.o.length).forEach(p=>{
+  const o=p.o.slice().sort((a,b)=>a[1]-b[1]),pr=o[0][1];
+  if(it.B&&pr>it.B)return;
+  const b=it.B?30*(.7+.3*Math.min(1,pr/it.B)):20,
+   u=it.pri.length?it.pri.reduce((s,k)=>s+p[k],0)/it.pri.length*2.5:15,
+   pf=p.perf*2,tr=p.o.reduce((s,x)=>s+(TR[x[0]]||9),0)/p.o.length,
+   drop=Math.max(0,(p.avg-pr)/p.avg*100),tm=Math.min(10,drop*1.25),
+   parts=[['Budget fit',b,30],['Your priorities',u,25],['Performance',pf,20],['Seller trust',tr,15]];
+  list.push({p,o,pr,drop:Math.round(drop),parts,sc:Math.round(parts.reduce((s,x)=>s+x[1],0)*100/90)});
+ });
+ return list.sort((a,b)=>b.sc-a.sc).slice(0,5);
+}
+function spark(x){
+ const pts=[];for(let k=0;k<10;k++){const v=x.p.avg+(x.pr-x.p.avg)*k/9+Math.sin(k*2.3+x.p.id)*x.p.avg*.015;pts.push(v)}
+ const mn=Math.min(...pts),mx=Math.max(...pts),d=pts.map((v,k)=>(k*13)+','+(26-(v-mn)/(mx-mn||1)*22)).join(' ');
+ return `<svg width="118" height="30" viewBox="0 0 118 30" role="img" aria-label="90-day price trend, currently ${x.drop}% below average"><polyline points="${d}" fill="none" stroke="var(--good)" stroke-width="2" stroke-linejoin="round"/></svg>`;
+}
+function why(x,list,pri){
+ const p=x.p,at=(pri.length?pri:CK[p.c].filter(k=>k!=='cam')).slice(0,2);
+ let t=`Scores ${at.map(a=>p[a]+'/10 on '+AT[a]).join(' and ')}. `;
+ if(x.drop>0)t+=`Priced ${x.drop}% below its 90-day average. `;
+ let k=null,gap=0,lead=null;
+ CK[p.c].forEach(a=>{list.forEach(y=>{if(y.p[a]-p[a]>gap){gap=y.p[a]-p[a];k=a;lead=y.p}})});
+ return `<b>Why this fits:</b> ${t}`+(k?`<br><b style="color:var(--warn)">You give up:</b> ${AT[k]} (${p[k]}/10 vs ${lead.n[k]?'':''}${lead[k]}/10 on ${lead.n}).`:'');
+}
+function card(x,i,list,pri){
+ const p=x.p,bd=[];
+ if(i===0)bd.push('Best fit');
+ if(list.length>1){
+  if(p.c==='phone'&&p===list.slice().sort((a,b)=>b.p.cam-a.p.cam)[0].p)bd.push('Best camera');
+  if(x===list.slice().sort((a,b)=>a.pr-b.pr)[0])bd.push('Lowest price');
+ }
+ const lo=x.o[0],href=o=>o[4]||link(o[0],p.n),
+  img=p.img?`<img src="${p.img}" alt="${p.n}" loading="lazy" referrerpolicy="no-referrer">`:`<div class="ph">${p.n[0]}</div>`,
+  rows=x.o.map((o,j)=>`<div class="sr"><span class="sn">${o[0]}</span><span class="sd">${o[6]||'Check delivery at store'}</span><a class="sp2${j?'':' lo'}" href="${href(o)}" target="_blank" rel="noopener sponsored">${inr(o[1])}</a></div>`).join(''),
+  bars=x.parts.map(([n,v,m])=>`<div class="bar"><span>${n}</span><span><i style="width:${v/m*100}%"></i></span><span>${Math.round(v)}/${m}</span></div>`).join('');
+ return `<article class="card${i?'':' first'}"><div class="im">${img}</div>
+ <div class="mid"><h3>${i+1}. ${p.n} <span class="fit">Fit ${x.sc}</span></h3><div class="spec">${p.s.replace(/ · /g,' / ')}</div>${bd.map(b=>`<span class="bd${b==='Best fit'?'':' g'}">${b}</span>`).join('')}
+ <div class="why">${why(x,list,pri)}</div><details><summary>How the fit score is built</summary>${bars}</details>
+ <label class="cmp"><input type="checkbox" data-c="${p.id}"${cmp.has(p.id)?' checked':''}> Add to compare</label></div>
+ <div class="pn"><div class="lp"><span>Lowest price</span><strong>${inr(x.pr)}</strong></div>
+ <a class="buy big" href="${href(lo)}" target="_blank" rel="noopener sponsored">Buy at lowest price · ${lo[0]}</a>
+ <div class="rt"><span>Prices by store</span><span>checked ${lo[5]||'n/a'}</span></div>${rows}
+ <div class="al"><label for="a${p.id}">Alert me at</label><input type="number" id="a${p.id}" value="${Math.round(x.pr*.96/100)*100}" step="100"><button data-a="${p.id}">Set alert</button></div></div></article>`;
+}
+async function run(ai){
+ const q=$('#q').value.trim();let it=parse(q),ag=0;if(FORCE){it=FORCE;FORCE=null;ag=it.ai;ai=0}
+ if(ai){try{const sm=await SM();if(sm){const r=await sm.json(`Extract a shopping intent from this Indian shopper query. Reply JSON only: {"cat":"phone|laptop|tv|audio|watch|beauty","B":<max budget in INR as a number, or null>,"pri":[subset of "cam","bat","perf","dis","por","skn"]}. Query: ${q}`,{modelTier:'quick'});if(r&&CK[r.cat]){it={cat:r.cat,B:+r.B||null,pri:(Array.isArray(r.pri)?r.pri:[]).filter(k=>CK[r.cat].includes(k))};ai=2}}}catch(e){}}
+ last=rank(it);
+ $('#intent').innerHTML=`<span>Understood:</span><span class="tag">${CN[it.cat]}</span>`+((ai===2||ag===2)?'<span class="tag">Read by AI</span>':'')+(it.B?`<span class="tag">Up to ${inr(it.B)}</span>`:'')+it.pri.map(k=>`<span class="tag">${AT[k]}</span>`).join('')+(it.pri.length||it.B?'':'<span>Add a budget or priority, e.g. "under ₹40k, good battery".</span>');
+ $('#res').innerHTML=last.length?last.map((x,i)=>card(x,i,last,it.pri)).join(''):'<div class="empty"><b>No match in this demo catalogue.</b><br>Try a higher budget or another category (phones, laptops, TVs, audio, smartwatches, beauty).</div>';
+ cmp=new Set();bar();
+}
+function bar(){$('#cbar').hidden=cmp.size<1;$('#cn').textContent=cmp.size+' selected (max 3)'}
+function store(){return mem}
+function save(a){mem=a;try{localStorage.setItem('bw_al',JSON.stringify(a))}catch(e){}if(DB)DB.doc('data/users/'+UID+'/alerts').set({list:a}).catch(()=>{});$('#ac').textContent=a.length;hits()}
+function hits(){const h=store().filter(a=>{const p=P.find(y=>y.id===a.id);return p&&Math.min(...p.o.map(o=>o[1]))<=a.t}),b=$('#hit');b.hidden=!h.length;b.textContent=h.length?'Target price reached: '+h.map(a=>a.n).join(', ')+'. Open Price alerts to review.':''}
+async function auth(){try{if(!window.claude)return;const[u,d]=await Promise.all([claude.use('user'),claude.use('db')]);if(!u||!d)return;UID=await u.id();DB=d;const s=await d.doc('data/users/'+UID+'/alerts').get(),l=s.exists&&s.data().list;if(Array.isArray(l)&&l.length){mem=l;$('#ac').textContent=l.length;hits()}$('#who').textContent='Signed in · alerts sync to your account'}catch(e){}}
+function open(html){const d=$('#dlg');d.innerHTML='<button class="x" aria-label="Close" onclick="this.closest(\'dialog\').close()">×</button>'+html;d.showModal()}
+function alerts(){
+ const a=store();
+ open('<h2 style="margin-top:0">Price alerts</h2>'+(a.length?a.map((x,i)=>`<div class="of"><div><b>${x.n}</b><br><small>Notify when it drops to ${inr(x.t)} (now ${inr(x.now)})</small></div><button class="ghost" onclick="rm(${i})">Remove</button></div>`).join(''):'<p class="empty">No alerts yet. Set a target price on any product.</p>')+'<p style="font-size:12.5px;color:var(--mute)">Demo: alerts are saved in this browser only.</p>');
+}
+window.rm=i=>{const a=store();a.splice(i,1);save(a);alerts()};
+document.addEventListener('click',e=>{
+ const t=e.target;const lk=t.closest&&t.closest('a.buy');if(lk)ev('clickout',{href:lk.href.slice(0,200)});
+ if(t.dataset.p){const p=P.find(y=>y.id==t.dataset.p),o=p.o.slice().sort((a,b)=>a[1]-b[1])[t.dataset.s];
+  open(`<h2 style="margin-top:0">Opening ${o[0]}</h2><p>You'd be sent to <b>${p.n}</b> at <b>${inr(o[1])}</b> through a tracked affiliate link. BuyWise earns a referral fee from the seller; the price you pay is the same.</p><p style="font-size:12.5px;color:var(--mute)">Demo: no real store link is attached. In production this click-out is logged to measure outbound click rate and purchase conversion.</p>`)}
+ if(t.dataset.a){const p=P.find(y=>y.id==t.dataset.a),v=+$('#a'+p.id).value,now=Math.min(...p.o.map(o=>o[1]));
+  if(!v||v<=0)return;const a=store();a.push({id:p.id,n:p.n,t:v,now});save(a);t.textContent='Alert set';setTimeout(()=>t.textContent='Set alert',1400)}
+ if(t.dataset.c){t.checked?(cmp.size>=3?(t.checked=false):cmp.add(+t.dataset.c)):cmp.delete(+t.dataset.c);bar()}
+ if(t.dataset.q)agent(t.dataset.q)
+});
+$('#cgo').onclick=()=>{
+ const xs=last.filter(x=>cmp.has(x.p.id));if(!xs.length)return;
+ const r=(l,f)=>`<tr><th scope="row">${l}</th>${xs.map(x=>`<td>${f(x)}</td>`).join('')}</tr>`;
+ open(`<h2 style="margin-top:0">Side-by-side</h2><div class="tw"><table><tr><th></th>${xs.map(x=>`<th>${x.p.n}</th>`).join('')}</tr>`+
+ r('Fit score',x=>x.sc)+r('Lowest price',x=>inr(x.pr)+'<br><small>'+x.o[0][0]+'</small>')+r('Key specs',x=>x.p.s)+
+ CK[xs[0].p.c].map(a=>r(AT[a][0].toUpperCase()+AT[a].slice(1),x=>x.p[a]+'/10')).join('')+
+ r('Checked at',x=>x.o[0][5]||'n/a')+`</table></div>`);
+};
+$('#alBtn').onclick=alerts;$('#go').onclick=()=>agent($('#q').value.trim());$('#q').addEventListener('keydown',e=>{if(e.key==='Enter')agent($('#q').value.trim())});$('#rs').onclick=greet;
+$('#ex').innerHTML=['Best phone under ₹40K for camera + battery','Phone with a huge battery under ₹35k','Sunscreen under ₹600','Gentle cleanser for sensitive skin under ₹500','Niacinamide serum under ₹700'].map(t=>`<button class="chip" data-q="${t}">${t}</button>`).join('');
+const bub=(w,h)=>{const d=document.createElement('div');d.className='bub '+w;d.textContent=h;$('#chat').appendChild(d);return d};
+const opts=a=>{if(!a||!a.length)return;const d=document.createElement('div');d.className='opts';a.forEach(o=>{const b=document.createElement('button');b.className='chip';b.textContent=o;b.onclick=()=>{d.remove();agent(o)};d.appendChild(b)});$('#chat').appendChild(d)};
+async function LIVE(cat){try{const r=await fetch('/prices.json',{cache:'no-cache'});if(!r.ok)throw 0;const d=await r.json();P.forEach(p=>{const l=d.items&&d.items[p.id];if(l&&p.c===cat){p.img=l.img||'';p.o=(l.offers||[]).map(o=>[o.store,o.price,0,null,o.link,new Date(o.checkedAt).toLocaleString('en-IN',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}),o.delivery||''])}});return P.some(p=>p.c===cat&&p.o.length)}catch(e){return false}}
+function greet(){hist=[];asked=0;$('#chat').innerHTML='';$('#res').innerHTML='';$('#intent').innerHTML='';cmp=new Set();bar();bub('ag','Hi! What do you want to buy today? Tell me in your own words. I currently cover smartphones and skincare.')}
+function rules(all){const it=parse(all);let ask=null,o=[];if(!it.B&&asked<1){ask='What is your budget?';o=['Under ₹15K','Under ₹30K','Under ₹50K','No limit']}else if(!it.pri.length&&asked<2){ask='What matters most to you?';o=CK[it.cat].map(k=>AT[k])}return{...it,ask,options:o,say:'',ai:1}}
+async function agent(text){
+ if(!text)return;$('#q').value='';bub('me',text);hist.push(text);ev('query',{text:text.slice(0,200)});
+ const all=hist.join('. '),th=bub('ag','Thinking…');let out=null;
+ try{const rs=await fetch('/api/intent',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({messages:hist,asked})});if(rs.ok){const r=await rs.json();if(r.notice)bub('ag',r.notice);if(r.unsupported){th.remove();bub('ag',r.say);return}if(CK[r.cat])out={cat:r.cat,B:+r.B||null,pri:(r.pri||[]).filter(k=>CK[r.cat].includes(k)),ask:r.ask||null,options:(r.options||[]).slice(0,4),say:String(r.say||''),ai:2}}}catch(e){}
+ if(!out)out=rules(all);
+ if(!['phone','beauty'].includes(out.cat)){th.remove();bub('ag','BuyWise currently covers smartphones and skincare. Try one of those.');return}
+ th.remove();
+ if(out.ask&&asked<2){asked++;bub('ag',out.ask);opts(out.options);return}
+ asked=0;bub('ag',out.say||'Here is what fits.');const pb=bub('ag','Loading latest prices…');const okp=await LIVE(out.cat);pb.remove();if(!okp)bub('ag','Prices have not been loaded yet, so I cannot rank products. Please try again later.');FORCE=out;await run(0);
+ const x=last[0];bub('ag',x?`Top pick: ${x.p.n} at ${inr(x.pr)} (${x.o[0][0]}). Tell me if you want a different budget or priority.`:'Nothing fits yet. Try a higher budget.');
+ ev('shortlist',{cat:out.cat,B:out.B,pri:out.pri,ai:out.ai,top:last.map(x=>x.p.id)});if(x){bub('ag','Was this shortlist useful?');const d=document.createElement('div');d.className='opts';[1,2,3,4,5].forEach(n=>{const b=document.createElement('button');b.className='chip';b.textContent=n+(n===5?' – very useful':'');b.onclick=()=>{ev('rating',{v:n});d.remove();bub('ag','Thanks for the feedback!')};d.appendChild(b)});$('#chat').appendChild(d)}
+ $('#res').scrollIntoView({behavior:'smooth',block:'start'})
+}
+try{mem=JSON.parse(localStorage.getItem('bw_al')||'[]')}catch(e){}$('#ac').textContent=mem.length;greet();hits();auth();
+</script>
+</body>
+</html>
