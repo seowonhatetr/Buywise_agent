@@ -24,6 +24,23 @@ function clean(r, asked) {
     ask, options: ask ? (Array.isArray(r.options) ? r.options : []).map(s => String(s).slice(0, 30)).slice(0, 4) : [],
     say: String(r.say || '').slice(0, 160) };
 }
+let modelCache = null;
+// Picks a currently available free-tier Gemini model automatically (model names change over time), unless MODEL is set.
+async function pickModel() {
+  if (process.env.MODEL) return process.env.MODEL;
+  if (modelCache) return modelCache;
+  const r = await fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=200', {
+    headers: { 'x-goog-api-key': process.env.GEMINI_API_KEY }, signal: AbortSignal.timeout(10000) });
+  if (!r.ok) throw new Error('list models ' + r.status);
+  const names = ((await r.json()).models || []).filter(m => (m.supportedGenerationMethods || []).includes('generateContent')).map(m => m.name.replace(/^models\//, ''));
+  const ver = n => parseFloat((n.match(/gemini-([\d.]+)/) || [0, 0])[1]);
+  const stable = names.filter(n => /^gemini-[\d.]+-flash(-lite)?(-\d+)?$/.test(n));
+  const pool = stable.length ? stable : names.filter(n => /flash/.test(n) && !/image|tts|live|audio|embedding|robotics|computer/.test(n));
+  pool.sort((a, b) => (/lite/.test(b) - /lite/.test(a)) || ver(b) - ver(a));
+  if (!pool.length) throw new Error('no usable Gemini model');
+  modelCache = pool[0]; console.log('Gemini model:', modelCache);
+  return modelCache;
+}
 async function callModel(msgs, asked) {
   const input = JSON.stringify({ asked, messages: msgs });
   if ((process.env.AI_PROVIDER || 'gemini') === 'anthropic') {
@@ -34,7 +51,7 @@ async function callModel(msgs, asked) {
     if (!r.ok) throw new Error('anthropic ' + r.status);
     const d = await r.json(); return (d.content && d.content[0] && d.content[0].text) || '';
   }
-  const model = process.env.MODEL || 'gemini-2.5-flash-lite';
+  const model = await pickModel();
   const r = await fetch('https://generativelanguage.googleapis.com/v1beta/models/' + model + ':generateContent', {
     method: 'POST', signal: AbortSignal.timeout(15000),
     headers: { 'x-goog-api-key': process.env.GEMINI_API_KEY, 'content-type': 'application/json' },
