@@ -8,7 +8,7 @@ const cache = new Map(), TTL = 24 * 3600e3, hits = new Map(), day = {};
 const limited = ip => { const n = Date.now(), a = (hits.get(ip) || []).filter(t => n - t < 6e5); a.push(n); hits.set(ip, a); return a.length > 15; };
 module.exports = async (req, res) => {
   if (req.method !== 'POST') return res.status(405).json({ error: 'POST only' });
-  if (!process.env.SERPAPI_KEY) return res.status(503).json({ error: 'not_configured' });
+  if (!process.env.SERPAPI_KEY) { console.error('SERPAPI_KEY is not set in the server environment'); return res.status(503).json({ error: 'not_configured' }); }
   const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0] || 'x';
   if (limited(ip)) return res.status(429).json({ error: 'busy' });
   let b = {}; try { b = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {}); } catch (e) {}
