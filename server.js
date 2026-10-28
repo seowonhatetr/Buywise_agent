@@ -1,6 +1,6 @@
 // Tiny Node server for Render (or any Node host): serves public/ and runs the same /api handlers used on Vercel.
 const http = require('http'), fs = require('fs'), path = require('path');
-const handlers = { '/api/intent': require('./api/intent.js'), '/api/event': require('./api/event.js'), '/api/prices': require('./api/prices.js') };
+const handlers = { '/api/search': require('./api/search.js'), '/api/event': require('./api/event.js') };
 const MIME = { '.html': 'text/html; charset=utf-8', '.json': 'application/json', '.js': 'text/javascript', '.css': 'text/css', '.png': 'image/png', '.svg': 'image/svg+xml', '.ico': 'image/x-icon' };
 const PUB = path.join(__dirname, 'public');
 http.createServer(async (req, res) => {

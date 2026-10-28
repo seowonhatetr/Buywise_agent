@@ -1,52 +1,44 @@
-# BuyWise India – 0원 배포 가이드 (GitHub + Vercel + Gemini 무료 + GitHub Actions)
+# BuyWise India – 제품명을 치면 가장 싼 쇼핑몰로 연결 (다나와 방식)
 
-## 구성과 비용
-| 부분 | 서비스 | 비용 |
+## 동작
+1. 사용자가 제품명을 입력한다. 예: `samsungs23`, `Samsung Galaxy S25 256GB`, `cetaphil cleanser`
+2. AI(Gemini 무료)가 오타와 띄어쓰기를 고쳐 검색어로 바꾼다. AI가 실패하면 입력한 글자 그대로 검색한다.
+3. 서버가 Google Shopping(인도)을 SerpApi로 조회한다.
+4. 케이스, 충전기, 리퍼비시, 중고, 평균보다 너무 싼 가격을 걸러내고, **판매처별 최저가를 싼 순서**로 보여준다.
+5. "Buy at lowest price" 버튼이 가장 싼 판매처로 연결된다.
+- 예시 검색어(`scripts/featured.json`)는 GitHub Actions가 4일마다 미리 조회해 `public/prices.json`에 저장한다. 그 검색은 즉시 나오고 무료 한도를 쓰지 않는다.
+
+## 환경 변수 (Render → Environment)
+| 이름 | 값 | 필수 |
 |---|---|---|
-| 코드 보관 | GitHub | 무료 |
-| 웹 호스팅 | Vercel (Hobby, `xxx.vercel.app` 주소) 또는 Render 무료 Web Service | 무료 (비상업적 사용 기준이라 수업 과제에는 적합, 사업화하면 약관 확인) |
-| AI 대화 | Google Gemini API 무료 등급 (`api/intent.js`) | 무료, 요청 제한 있음. **무료 등급 입력은 Google이 제품 개선에 쓸 수 있다** |
-| 가격 | GitHub Actions가 4일마다 Google Shopping을 조회해 `public/prices.json` 갱신 (SerpApi 무료 플랜) | 무료, 월 조회 한도 있음 |
-| 사용 로그 | Google Sheet (선택) | 무료 |
-| 도메인 | 필요 없음 (vercel.app 주소로 충분). 사고 싶으면 Vercel에서 연결 가능 | 도메인 값만 |
+| `GEMINI_API_KEY` | Google AI Studio 키 (오타 교정용) | 권장 |
+| `SERPAPI_KEY` | SerpApi 키 (**이제 Render에도 필요**) | 필수 |
+| `DAILY_LIMIT` | 하루 새 검색 횟수 상한 (기본 12) | 선택 |
+`SERPAPI_KEY`는 GitHub Secrets에도 그대로 둔다 (예시 검색어 갱신용).
 
-## 배포 순서
-1. zip을 풀고, 안의 내용(`api`, `public`, `scripts`, `.github`, `package.json`, `vercel.json`, `README.md`, `.env.example`)을 GitHub 새 저장소(Private 권장)에 업로드한다. 폴더를 통째로 올리지 말고 **내용물**을 올려야 하고, 숨김 폴더 `.github`도 포함해야 한다. (드래그가 안 되면 Add file → Create new file에서 `.github/workflows/refresh-prices.yml` 이름으로 내용을 붙여넣는다.)
-2. aistudio.google.com에서 Google 계정으로 로그인 → API 키 생성 (결제 정보 없이 만들 수 있다).
-3. Vercel → Add New → Project → 저장소 Import → Framework Preset `Other` → Environment Variables에 `GEMINI_API_KEY` 입력 → Deploy
-4. serpapi.com 가입(무료 플랜) → API 키 복사 → GitHub 저장소 → Settings → Secrets and variables → Actions → New repository secret → 이름 `SERPAPI_KEY`
-5. GitHub 저장소 → Actions 탭 → `Refresh prices` → Run workflow (처음 한 번 직접 실행). 1~2분 뒤 `public/prices.json`이 채워지고 Vercel이 자동 재배포한다. 이후에는 4일마다 자동 갱신된다.
-6. 시크릿 창에서 배포 주소를 열어 확인한다: "Best phone under ₹40K for camera + battery" 입력 → 질문을 되묻거나 결과 위에 "Read by AI" 태그가 보이면 AI가 작동하는 것이고, 결과 카드에는 가격, 사진, 확인 시각이 나와야 한다.
+## 한도 (무료라서)
+- SerpApi 무료 플랜은 월 250회다. 새 검색 1번 = 1회를 쓴다. 같은 검색은 24시간 캐시되지만, **Render 무료 서버는 잠들면 캐시가 사라진다.**
+- 그래서 하루 새 검색을 12회로 막아 둔다(`DAILY_LIMIT`). 넘으면 "오늘 한도 소진" 안내가 나오고 예시 검색어는 계속 된다. 사용자 테스트 날에는 이 값을 올리거나, 테스트 참가자에게 예시 검색어와 몇 개의 검색만 쓰도록 안내한다.
+- 월 한도를 쓰면 SerpApi가 거절하고, 화면은 "검색을 쓸 수 없다"고 안내한다.
+- Gemini 무료 등급은 요청 제한이 있고 입력을 Google이 제품 개선에 쓸 수 있다. 화면 하단에 고지가 있다.
 
-## Render에 배포하려면 (Vercel 대신)
-Render의 **Static Site**는 `api/` 폴더의 서버 함수를 실행하지 못한다. 반드시 **Web Service**로 만들어야 하고, 이 저장소에는 이를 위한 `server.js`가 들어 있다.
-1. Render → New + → **Web Service** → GitHub 저장소 선택
-2. Runtime `Node`, Build Command `npm install`, Start Command `node server.js`, Instance Type `Free`
-3. Environment → `GEMINI_API_KEY` 추가 → Create/Deploy
-4. 가격 파일은 GitHub Actions가 `public/prices.json`을 저장소에 커밋하면, Render가 자동 배포(Auto-Deploy)로 반영한다. Auto-Deploy가 켜져 있는지 확인한다.
-5. 무료 Web Service는 한동안 접속이 없으면 잠들고, 다시 열 때 첫 로딩이 1분 가까이 걸릴 수 있다. 데모 영상과 테스트 직전에 주소를 한 번 열어 깨워 둔다.
-6. 이미 다른 프로젝트가 올라간 저장소라면 덮어쓰기 전에 백업하거나 새 저장소를 만든다.
+## 알려진 한계 (리포트 A에 그대로 적을 것)
+- 가격은 Google Shopping 결과 시점의 값이고 쇼핑몰 재고와 직접 연결돼 있지 않다. 같은 제품이어도 용량, 색상별 가격이 섞일 수 있어 제목을 함께 보여 준다.
+- 링크는 제휴(수수료) 링크가 아니다.
+- 제품 카테고리에 제한은 없지만, 제품명이 모호하면 가장 가까운 결과를 "closest matches"로 보여 준다.
+- 카드 혜택가, 할부, 판매자 평점은 데이터가 없어서 넣지 않았다.
+- 이메일/WhatsApp 가격 알림은 없다.
 
-## 한도 (무료라서 생기는 제약)
-- 가격은 실시간이 아니라 **4일마다 갱신되는 스냅샷**이다. 화면에는 확인 날짜와 시각이 표시된다. SerpApi 무료 플랜은 월 250회로 알려져 있고(가입 화면에서 확인), 상품 11개를 4일마다 조회하면 월 약 90회를 쓴다. 수동 실행을 너무 자주 하면 한도를 넘는다.
-- Gemini 무료 등급은 요청 제한이 있고 AI Studio 콘솔에서 확인할 수 있다. 한도를 넘으면 429가 나오고, 화면은 자동으로 규칙 기반 되묻기로 바뀐다.
-- 화면에 "검색어가 Gemini 무료 등급으로 처리되고 Google이 개선에 쓸 수 있다"는 고지가 있다. 테스트 참가자에게도 개인정보를 입력하지 말라고 알린다.
-- 링크는 Google Shopping 결과이고 제휴(수수료) 링크가 아니다.
-- 성능 점수(카메라, 배터리, 피부 순함 등)는 팀이 매긴 점수이지 실측이 아니다.
-- 직접 가격을 넣고 싶으면 `public/prices.json`을 같은 구조로 손으로 고쳐도 된다.
-- 트레이드오프 설명은 템플릿이고, 이메일/WhatsApp 알림 발송은 없다.
+## 업데이트 방법 (이미 올린 저장소에)
+1. zip을 풀고 내용물을 GitHub 저장소 → Add file → Upload files로 올려 같은 이름의 파일을 덮어쓴다. (`api`, `public`, `scripts`, `server.js`, `README.md`)
+2. 이전 파일 `api/intent.js`, `api/prices.js`, `api/_catalog.js`는 더 이상 쓰이지 않는다. 남아 있어도 문제없다.
+3. Render Environment에 `SERPAPI_KEY` 추가 → 저장하면 자동 재배포
+4. GitHub → Actions → Refresh prices → Run workflow (예시 검색어 가격을 새로 채움)
 
 ## 사용 로그를 Google Sheet로 받기 (선택)
-1. 새 Google Sheet → 확장 프로그램 → Apps Script:
-   ```js
-   function doPost(e){const r=JSON.parse(e.postData.contents);
-   SpreadsheetApp.getActiveSheet().appendRow([r.t,r.sid,r.type,r.data]);
-   return ContentService.createTextOutput('ok')}
-   ```
-2. 배포 → 새 배포 → 웹 앱, 액세스 `모든 사용자` → URL을 Vercel 환경 변수 `EVENT_WEBHOOK_URL`에 넣고 Redeploy
-
-## 문제 해결
-- 404: `api`와 `public`이 저장소 맨 위에 있는지 확인
-- "Prices have not been loaded yet": 5단계(Run workflow)를 했는지, Actions 탭의 실행이 초록색인지, `SERPAPI_KEY` 이름 확인
-- AI가 안 되고 규칙 기반 질문만 나온다: `GEMINI_API_KEY` 확인 후 Redeploy, Vercel Logs에서 `gemini 4xx` 확인
-- Actions가 실패하며 권한 오류: Settings → Actions → General → Workflow permissions → Read and write permissions
+Apps Script에 아래를 붙여 웹 앱으로 배포(액세스 `모든 사용자`)하고, 주소를 `EVENT_WEBHOOK_URL`에 넣는다.
+```js
+function doPost(e){const r=JSON.parse(e.postData.contents);
+SpreadsheetApp.getActiveSheet().appendRow([r.t,r.sid,r.type,r.data]);
+return ContentService.createTextOutput('ok')}
+```
