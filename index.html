@@ -38,6 +38,11 @@ h2{font-size:18px;font-weight:600;letter-spacing:-.01em;line-height:1.3;margin:0
 .rate{margin:28px 0 0;padding-top:18px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13.5px;color:var(--mute)}
 .rate button{border:1px solid var(--line);background:none;border-radius:999px;width:34px;height:34px;padding:0}.rate button:hover{border-color:var(--ink)}
 footer{color:var(--mute);font-size:12px;line-height:1.65;padding:48px 0 72px;margin-top:56px;border-top:1px solid var(--line);max-width:44em}
+.sec{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute);font-weight:600}
+.none{color:var(--mute);font-size:13.5px;padding:10px 0 4px}
+.used-sec{margin-top:44px;padding-top:30px;border-top:1px solid var(--line)}
+.buy.alt{background:none;color:var(--ink);border:1px solid var(--ink)}
+.note{color:var(--mute);font-size:12.5px;margin:18px 0 0}
 </style>
 </head>
 <body>
@@ -65,28 +70,35 @@ function chips(){const l=Object.values(snap.items||{}).filter(x=>x.q&&x.offers&&
 fetch('/prices.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{snap=d||snap}).catch(()=>{}).finally(chips);
 const when=t=>new Date(t).toLocaleString('en-IN',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
 function show(d,q){
- const o=(d.offers||[]);
- if(!o.length){$('#st').textContent='';$('#res').innerHTML=`<div class="empty">No prices found for “${esc(q)}”.<br>Try the full model name, for example “Samsung Galaxy S25 256GB”.</div>`;return}
- const lo=o[0],fixed=d.query&&norm(d.query)!==norm(q);
- $('#st').innerHTML=(fixed?`Showing results for <b>${esc(d.query)}</b> (AI fixed your spelling). `:'')+(d.relaxed?'The exact model was not found, so these are the closest matches. ':'')+`${o.length} store${o.length>1?'s':''} compared.`;
+ const nw=d.offers||[],us=d.used||[];
+ if(!nw.length&&!us.length){$('#st').textContent='';$('#res').innerHTML=`<div class="empty">No prices found for “${esc(q)}”.<br>Try the full model name, for example “Samsung Galaxy S25 256GB”.</div>`;return}
+ const first=nw[0]||us[0],fixed=d.query&&norm(d.query)!==norm(q);
+ $('#st').innerHTML=(fixed?`Showing results for <b>${esc(d.query)}</b> (AI fixed your spelling). `:'')+(d.relaxed?'The exact model was not found, so these are the closest matches. ':'')+`${nw.length} store${nw.length==1?'':'s'} with new, ${us.length} with used or refurbished.`;
  const img=ok(d.img)?`<img src="${esc(d.img)}" alt="" loading="lazy" referrerpolicy="no-referrer">`:`<div class="ph">${esc((d.query||q)[0]||'?')}</div>`;
  const href=x=>ok(x.link)?esc(x.link):'https://www.google.com/search?tbm=shop&gl=in&q='+encodeURIComponent(x.title||q);
- const rows=o.map((x,j)=>`<div class="sr"><span class="sn">${esc(x.store)}</span><span class="tt" title="${esc(x.title)}">${esc(x.title)}${x.delivery?' · '+esc(x.delivery):''}</span><a class="pr${j?'':' lo'}" data-s="${esc(x.store)}" data-p="${x.price}" href="${href(x)}" target="_blank" rel="noopener sponsored">${inr(x.price)}</a></div>`).join('');
+ const blk=(list,label,used)=>{
+  if(!list.length)return `<div class="sec">${label}</div><div class="none">No ${used?'used or refurbished':'new'} listings found for this search.</div>`;
+  const lo=list[0];
+  return `<div class="sec">${label}</div><div class="lp"><span>Lowest price</span><strong>${inr(lo.price)}</strong></div>
+  <a class="buy${used?' alt':''}" data-s="${esc(lo.store)}" data-p="${lo.price}" href="${href(lo)}" target="_blank" rel="noopener sponsored">${used?'See lowest used price':'Buy at lowest price'} · ${esc(lo.store)}${lo.direct?'':' (via Google)'}</a>
+  <div class="rt"><span>Prices by store</span><span>checked ${esc(when(d.checkedAt))}</span></div>`+list.map((x,j)=>`<div class="sr"><span class="sn">${esc(x.store)}</span><span class="tt" title="${esc(x.title)}">${used&&x.cond?esc(x.cond)+' · ':''}${esc(x.title)}${x.delivery?' · '+esc(x.delivery):''}${x.direct?'':' · via Google'}</span><a class="pr${j?'':' lo'}" data-s="${esc(x.store)}" data-p="${x.price}" href="${href(x)}" target="_blank" rel="noopener sponsored">${inr(x.price)}</a></div>`).join('');
+ };
  $('#res').innerHTML=`<article class="card"><div class="im">${img}</div>
- <div><h2>${esc(lo.title||d.query||q)}</h2><div class="sub">Cheapest listing found. Other variants (storage, colour) may cost differently, so check the title.</div></div>
- <div><div class="lp"><span>Lowest price</span><strong>${inr(lo.price)}</strong></div>
- <a class="buy" data-s="${esc(lo.store)}" data-p="${lo.price}" href="${href(lo)}" target="_blank" rel="noopener sponsored">Buy at lowest price · ${esc(lo.store)}</a>
- <div class="rt"><span>Prices by store</span><span>checked ${esc(when(d.checkedAt))}</span></div>${rows}</div></article>
+ <div><h2>${esc(first.title||d.query||q)}</h2><div class="sub">Cheapest listing found. Other variants (storage, colour) may cost differently, so check the title.</div></div>
+ <div>${blk(nw,'New',false)}<div class="used-sec">${blk(us,'Used &amp; refurbished',true)}${us.length?'<div class="note">Condition and warranty vary by seller. Check the grade, the warranty and, for phones, the battery health before you buy.</div>':''}</div></div></article>
  <div class="rate"><span>Was this result useful?</span>${[1,2,3,4,5].map(n=>`<button data-r="${n}">${n}</button>`).join('')}</div>`;
- ev('shortlist',{q:q.slice(0,100),query:d.query||'',stores:o.length,lowest:lo.price,store:lo.store,ai:!!d.ai,relaxed:!!d.relaxed});
+ ev('shortlist',{q:q.slice(0,100),query:d.query||'',new:nw.length,used:us.length,lowest:(nw[0]||{}).price||null,lowestUsed:(us[0]||{}).price||null,ai:!!d.ai,relaxed:!!d.relaxed});
 }
 async function search(q){
  q=(q||'').trim();if(q.length<2)return;$('#q').value=q;ev('query',{text:q.slice(0,100)});
  $('#st').textContent='Searching stores…';$('#res').innerHTML='';
  let d=snap.items&&snap.items[norm(q)];
- if(!d){try{const r=await fetch('/api/search',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({q})});d=await r.json();
-   if(!r.ok){$('#st').textContent='';$('#res').innerHTML=`<div class="empty">${d.error==='limit'?'The free daily search limit has been reached. Please try again tomorrow, or tap one of the example searches.':d.error==='busy'?'Too many searches. Please wait a few minutes.':'Search is unavailable right now. Please try again later.'}</div>`;return}}
-  catch(e){$('#st').textContent='';$('#res').innerHTML='<div class="empty">Search is unavailable right now. Please try again later.</div>';return}}
+ if(!d){
+  const fail=m=>{$('#st').textContent='';$('#res').innerHTML=`<div class="empty">${m}</div>`};
+  let r;try{r=await fetch('/api/search',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({q})})}catch(e){return fail('Could not reach the server. Please check your connection and try again.')}
+  try{d=await r.json()}catch(e){return fail('The search service was not found on the server (the server files may need updating).')}
+  if(!r.ok){const m={limit:'The free daily search limit has been reached. Please try again tomorrow, or tap one of the example searches.',busy:'Too many searches. Please wait a few minutes.',not_configured:'Search is not set up yet: the SerpApi key is missing on the server.',upstream:'The price source did not respond (it may be out of free searches). Please try again later.'};return fail(m[d.error]||'Search is unavailable right now. Please try again later.')}
+ }
  show(d,q);
 }
 $('#go').onclick=()=>search($('#q').value);$('#q').addEventListener('keydown',e=>{if(e.key==='Enter')search($('#q').value)});
