@@ -78,7 +78,7 @@ function chips(){const l=Object.values(snap.items||{}).filter(x=>x.q&&x.offers&&
 fetch('/prices.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{snap=d||snap}).catch(()=>{}).finally(chips);
 const when=t=>new Date(t).toLocaleString('en-IN',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
 function show(d,q){
- const nw=d.offers||[],us=d.used||[],rf=us.filter(x=>x.cond==='Refurbished'),ud=us.filter(x=>x.cond!=='Refurbished');
+ const srt=l=>(l||[]).slice().sort((a,b)=>a.price-b.price||(/^amazon/i.test(b.store)?1:0)-(/^amazon/i.test(a.store)?1:0)),nw=srt(d.offers),us=srt(d.used),rf=us.filter(x=>x.cond==='Refurbished'),ud=us.filter(x=>x.cond!=='Refurbished');
  if(!nw.length&&!us.length){$('#st').textContent='';$('#res').innerHTML=`<div class="empty">No prices found for “${esc(q)}”.<br>Try the full model name, for example “Samsung Galaxy S25 256GB”.</div>`;return}
  const first=nw[0]||us[0],fixed=d.query&&norm(d.query)!==norm(q);
  $('#st').innerHTML=(fixed?`Showing results for <b>${esc(d.query)}</b> (AI fixed your spelling). `:'')+(d.relaxed?'The exact model was not found, so these are the closest matches. ':'');

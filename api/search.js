@@ -30,7 +30,7 @@ module.exports = async (req, res) => {
     if (process.env.USED_SEARCH === '1' && !v.used.length && day[today] < cap) {   // optional: one extra search to find used/refurbished listings
       day[today]++; try { const u = build(await fetchShopping('refurbished ' + query), query); if (u.used.length) v.used = u.used; } catch (e) {}
     }
-    const ru = await resolveDirect(v.used); day[today] += ru.credits;   // direct link for the cheapest used listing
+    const ru = await resolveDirect(v.used, 6); day[today] += ru.credits;   // direct link for the cheapest used listing
     v.offers = strip(v.offers); v.used = strip(ru.list);
     cache.set(key, { t: Date.now(), v });
     return res.status(200).json({ ...v, query, ai });
