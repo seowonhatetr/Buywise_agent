@@ -138,9 +138,54 @@ function filterExactModels(products, originalQuery) {
     if (!product || !product.title) continue;
     const title = product.title.toLowerCase();
 
-    // Exclude obvious non-product accessories unless asked
+    // Skip strict accessory filtering for now to ensure results return
     const accessories = ['case', 'cover', 'screen protector', 'tempered glass', 'skin', 'sticker', 'charger cable', 'adapter'];
     if (accessories.some(acc => title.includes(acc) && !query.includes(acc))) continue;
+
+    // Simplified variant filtering - only exclude if variant appears without the base model
+    const variants = ['fe', 'plus', 'pro', 'max', 'ultra', 'edge', 'lite', 'mini', 's25+', 's24+', 's23+'];
+    let hasExcludedVariant = false;
+    for (const v of variants) {
+      if (title.includes(v) && !query.includes(v)) {
+        hasExcludedVariant = true;
+        break;
+      }
+    }
+
+    if (hasExcludedVariant) {
+      // Only exclude if the variant is clearly not what the user wants
+      const baseModelMatch = title.match(/^([\w\s]+)(?:\s+(fe|plus|pro|max|ultra|edge|lite|mini))?\s*$/i);
+      if (baseModelMatch && baseModelMatch[1].toLowerCase().includes(query.toLowerCase())) {
+        // User searched for base model, so exclude variants
+        continue;
+      }
+      // Otherwise, allow variants to appear (more permissive search)
+    }
+
+    // Check minimum price
+    const price = parseFloat(product.extracted_price || product.price || 0);
+    const minPrice = getMinPrice(product.title);
+
+    if (price > 0 && price < minPrice) continue;
+
+    filtered.push(product);
+  }
+
+  // Fallback to original products if filtering removed everything
+  return filtered.length > 0 ? filtered : products;
+}
+  const query = originalQuery.toLowerCase();
+  const filtered = [];
+
+  for (const product of products) {
+    if (!product || !product.title) continue;
+    const title = product.title.toLowerCase();
+
+    // Exclude obvious non-product accessories unless asked
+    // Skip strict accessory filtering for now to ensure results return
+// Removed strict accessory filtering to ensure search results return
+// const accessories = ['case', 'cover', 'screen protector', 'tempered glass', 'skin', 'sticker', 'charger cable', 'adapter'];
+// if (accessories.some(acc => title.includes(acc) && !query.includes(acc))) continue;
 
     // Exclude variants (FE, Plus, Pro, Max, Ultra, Edge, Lite, Mini) if query doesn't specify them
     const variants = ['fe', 'plus', 'pro', 'max', 'ultra', 'edge', 'lite', 'mini'];
@@ -152,7 +197,16 @@ function filterExactModels(products, originalQuery) {
       }
     }
 
-    if (hasExcludedVariant) continue;
+    // More permissive variant filtering - only exclude if user explicitly searched for base model
+if (hasExcludedVariant) {
+  // Only exclude if the query matches the base model part of the title
+  const baseModelMatch = title.match(/^([\w\s]+)(?:\s+(fe|plus|pro|max|ultra|edge|lite|mini))?\s*$/i);
+  if (baseModelMatch && baseModelMatch[1].toLowerCase().includes(query.toLowerCase())) {
+    // User searched for base model (e.g., "Samsung Galaxy S24"), so exclude variants like "S24 FE"
+    continue;
+  }
+  // Otherwise, allow variants to appear (more permissive search for better results)
+}
 
     // Check minimum price
     const price = parseFloat(product.extracted_price || product.price || 0);
