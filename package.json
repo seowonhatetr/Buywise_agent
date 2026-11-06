@@ -1,1 +1,18 @@
-{ "name": "buywise-india", "private": true, "version": "0.1.0", "engines": { "node": ">=18" }, "scripts": { "start": "node server.js" } }
+{
+  "name": "buywise-india",
+  "version": "1.0.0",
+  "description": "BuyWise India – Product Price Comparison Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["price-comparison", "shopping", "india", "product-search"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.2",
+    "dotenv": "^16.0.0"
+  }
+}
