@@ -1,528 +1,123 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BuyWise India - Buy at Lowest Price</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <style>
-        :root {
-            --primary-color: #ff3f6c;
-            --secondary-color: #282c3f;
-            --bg-light: #f5f5f6;
-            --text-color: #282c3f;
-            --muted-color: #94969f;
-            --border-color: #eaeaec;
-            --success-color: #28a745;
-            --danger-color: #dc3545;
-            --loading-color: #6c757d;
-            --footer-bg: #282c3f;
-            --footer-text: #b9bbbf;
-        }
-        body {
-            background-color: var(--bg-light);
-            font-family: 'Assistant', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-        .navbar {
-            background: white;
-            box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
-            padding: 15px 0;
-        }
-        .navbar-brand {
-            font-weight: 800;
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            letter-spacing: 1px;
-        }
-        .hero-section {
-            background: white;
-            padding: 60px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .search-wrapper {
-            max-width: 700px;
-            margin: 0 auto;
-            position: relative;
-        }
-        .search-input {
-            height: 50px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            background: #f5f5f6;
-            padding: 10px 20px 10px 45px;
-            font-size: 14px;
-            width: 100%;
-            transition: all 0.2s;
-        }
-        .search-input:focus {
-            background: white;
-            border-color: var(--border-color);
-            outline: none;
-            box-shadow: none;
-        }
-        .search-icon {
-            position: absolute;
-            left: 15px;
-            top: 15px;
-            color: var(--loading-color);
-        }
-        .search-btn {
-            position: absolute;
-            right: 5px;
-            top: 5px;
-            height: 40px;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 0 20px;
-            font-weight: 700;
-            font-size: 14px;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
-        .search-btn:hover {
-            opacity: 0.9;
-        }
-        .featured-section {
-            padding: 40px 0;
-        }
-        .section-title {
-            font-size: 18px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 25px;
-            color: #3e4152;
-            letter-spacing: 1px;
-        }
-        .featured-card {
-            background: white;
-            border: none;
-            border-radius: 8px;
-            padding: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            height: 100%;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        }
-        .featured-card:hover {
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-        }
-        .featured-img {
-            width: 100%;
-            height: 150px;
-            object-fit: contain;
-            margin-bottom: 15px;
-        }
-        .featured-name {
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 5px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .featured-price {
-            color: var(--primary-color);
-            font-weight: 700;
-            font-size: 14px;
-        }
-        .results-container {
-            padding-bottom: 80px;
-        }
-        .product-card {
-            background: white;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            margin-bottom: 15px;
-            overflow: hidden;
-        }
-        .product-card .row {
-            margin: 0;
-        }
-        .product-img-container {
-            padding: 15px;
-            background: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .product-img {
-            max-width: 100px;
-            max-height: 100px;
-            object-fit: contain;
-        }
-        .product-info {
-            padding: 15px;
-            border-left: 1px solid var(--border-color);
-        }
-        .product-title {
-            font-size: 16px;
-            font-weight: 400;
-            color: var(--text-color);
-            margin-bottom: 8px;
-            line-height: 1.2;
-        }
-        .product-source {
-            font-size: 12px;
-            color: var(--muted-color);
-            margin-bottom: 10px;
-        }
-        .product-price {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-color);
-        }
-        .product-action {
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-end;
-        }
-        .buy-now-btn {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 10px 25px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: opacity 0.2s;
-            display: block;
-            text-align: center;
-        }
-        .buy-now-btn:hover {
-            opacity: 0.9;
-        }
-        .via-google {
-            font-size: 11px;
-            color: var(--muted-color);
-            margin-top: 5px;
-        }
-        .category-badge {
-            font-size: 12px;
-            font-weight: 700;
-            padding: 4px 12px;
-            border-radius: 20px;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
-        .badge-new {
-            background: #e5f7ee;
-            color: var(--success-color);
-        }
-        .badge-used {
-            background: #fff4e5;
-            color: #ff9800;
-        }
-        #loading {
-            padding: 100px 0;
-            text-align: center;
-        }
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid rgba(255, 63, 108, 0.2);
-            border-top-color: var(--primary-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        .error-message {
-            color: var(--danger-color);
-            font-weight: 600;
-            text-align: center;
-            margin: 20px 0;
-        }
-        .footer {
-            background: var(--footer-bg);
-            color: var(--footer-text);
-            padding: 60px 0 20px;
-            margin-top: 60px;
-        }
-        .footer-logo {
-            font-weight: 800;
-            color: white;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-        .footer-text {
-            line-height: 1.8;
-        }
-        .copyright {
-            border-top: 1px solid #3e4152;
-            margin-top: 40px;
-            padding-top: 20px;
-            font-size: 12px;
-            color: #7e818c;
-        }
-        .limit-notice {
-            color: var(--muted-color);
-            font-size: 12px;
-            margin-top: 10px;
-            text-align: center;
-        }
-        .corrected-query {
-            color: var(--success-color);
-            font-size: 14px;
-            margin-top: 10px;
-            text-align: center;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BuyWise India – Find the lowest price</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--ink:#111114;--mute:#85858f;--line:#ececf0;--acc:#2347e8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root{--bg:#0c0c0f;--ink:#f2f2f5;--mute:#8d8d98;--line:#25252c;--acc:#8ea2ff}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.55 "Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+button,input{font:inherit;color:inherit}button{cursor:pointer}:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.wrap{max-width:720px;margin:0 auto;padding:0 22px}
+.logo{font-weight:600;font-size:16px;letter-spacing:-.01em;padding:28px 0 0}.logo i{font-style:normal;font-weight:400;color:var(--mute)}
+h1{font-size:clamp(30px,6vw,44px);line-height:1.08;letter-spacing:-.035em;font-weight:600;margin:72px 0 14px;max-width:13em}
+.lead{color:var(--mute);margin:0 0 36px;max-width:34em}
+.sbox{display:flex;gap:10px;align-items:center;border-bottom:1.5px solid var(--ink);padding-bottom:6px}.sbox:focus-within{border-color:var(--acc)}
+.sbox input{flex:1;min-width:0;border:0;background:none;padding:10px 0;font-size:20px;letter-spacing:-.01em}.sbox input::placeholder{color:var(--mute)}.sbox input:focus-visible{outline:none}
+.go{background:var(--ink);color:var(--bg);border:0;border-radius:999px;padding:9px 22px;font-weight:600;font-size:14px}.go:hover{opacity:.88}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}.chip{background:none;border:1px solid var(--line);border-radius:999px;padding:5px 13px;font-size:13px;color:var(--mute)}.chip:hover{color:var(--ink);border-color:var(--ink)}
+#st{margin:44px 0 18px;color:var(--mute);font-size:13.5px}#st b{color:var(--ink);font-weight:600}
+.card{display:grid;grid-template-columns:96px 1fr;gap:6px 22px;padding:26px 0 8px;border-top:1px solid var(--line)}
+.im{grid-row:1/3}.card>div:nth-child(3){grid-column:1/-1}
+@media(min-width:640px){.card{grid-template-columns:128px 1fr}.card>div:nth-child(3){grid-column:2}}
+.im img,.ph{width:100%;aspect-ratio:1;object-fit:contain;border-radius:12px;background:#fff;border:1px solid var(--line)}.ph{display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:600;color:#b4b4bc}
+h2{font-size:18px;font-weight:600;letter-spacing:-.01em;line-height:1.3;margin:0 0 6px}.sub{color:var(--mute);font-size:13px}
+.lp{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px}
+.lp span,.rt span{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute);font-weight:600}
+.lp strong{font-size:40px;font-weight:600;letter-spacing:-.035em;font-variant-numeric:tabular-nums}
+.buy{display:block;text-align:center;background:var(--ink);color:var(--bg);padding:14px;border-radius:12px;margin:14px 0 26px;font-weight:600;text-decoration:none}.buy:hover{opacity:.88}
+.rt{display:flex;justify-content:space-between;padding-bottom:8px}
+.sr{display:grid;grid-template-columns:1fr auto;gap:0 16px;align-items:center;padding:14px 0;border-top:1px solid var(--line)}
+.sn{font-weight:600}.tt{color:var(--mute);font-size:12.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pr{grid-column:2;grid-row:1/3;font-weight:600;font-size:16px;color:var(--ink);text-decoration:none;font-variant-numeric:tabular-nums}.pr.lo{color:var(--acc)}.pr:hover{text-decoration:underline}
+.empty{padding:48px 0;color:var(--mute)}
+.rate{margin:28px 0 0;padding-top:18px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13.5px;color:var(--mute)}
+.rate button{border:1px solid var(--line);background:none;border-radius:999px;width:34px;height:34px;padding:0}.rate button:hover{border-color:var(--ink)}
+footer{color:var(--mute);font-size:12px;line-height:1.65;padding:48px 0 72px;margin-top:56px;border-top:1px solid var(--line);max-width:44em}
+.sec{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute);font-weight:600}
+.none{color:var(--mute);font-size:13.5px;padding:10px 0 4px}
+.used-sec{margin-top:44px;padding-top:30px;border-top:1px solid var(--line)}
+.buy.alt{background:none;color:var(--ink);border:1px solid var(--ink)}
+.note{color:var(--mute);font-size:12.5px;margin:18px 0 0}
+.tier{display:grid;grid-template-columns:auto 1fr auto auto;gap:12px;align-items:center;padding:13px 0;border-top:1px solid var(--line)}
+.tl{font-size:12px;font-weight:600;border:1px solid var(--acc);color:var(--acc);border-radius:4px;padding:1px 9px;min-width:92px;text-align:center}
+.tp{font-size:19px;font-weight:700;text-align:right;font-variant-numeric:tabular-nums;color:var(--acc)}
+.plus{border:1px solid var(--line);background:none;width:28px;height:28px;border-radius:4px;font-size:16px;line-height:1;padding:0}.plus:hover{border-color:var(--ink)}
+.tc{color:var(--mute);font-size:13px;min-width:70px;text-align:right}
+.tlist{padding:0 0 10px 0}.tlist[hidden]{display:none}.tlist .sr{padding:11px 0 11px 12px;border-top:1px dashed var(--line)}
+.lt{font-style:normal;font-size:10.5px;font-weight:600;color:var(--acc);border:1px solid var(--acc);border-radius:4px;padding:0 5px;margin-left:6px}
+.na{color:var(--mute)}
+</style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <a class="navbar-brand" href="/">BUYWISE INDIA</a>
-            <div id="limitDisplay" class="text-muted small d-none">Today: 0/12</div>
-        </div>
-    </nav>
-
-    <div class="hero-section">
-        <div class="container text-center">
-            <h2 class="mb-4">최저가 쇼핑의 시작</h2>
-            <div class="search-wrapper">
-                <i class="bi bi-search search-icon"></i>
-                <form id="searchForm">
-                    <input type="text" id="queryInput" class="search-input" placeholder="브랜드명, 제품명으로 검색하세요 (예: Samsung Galaxy S25)" required autocomplete="off">
-                    <button type="submit" class="search-btn">검색</button>
-                </form>
-            </div>
-            <div id="correctedQuery" class="corrected-query d-none mt-3">검색어 교정: "<span id="correctedQueryText"></span>"</div>
-            <div id="limitNotice" class="limit-notice d-none">오늘의 검색 한도가 초과되었습니다. 내일 다시 시도해 주세요.</div>
-        </div>
-    </div>
-
-    <div id="featuredContainer" class="featured-section">
-        <div class="container">
-            <h3 class="section-title">인기 검색 제품</h3>
-            <div id="featuredList" class="row row-cols-2 row-cols-md-4 g-3">
-                <!-- Featured items will be loaded here -->
-            </div>
-        </div>
-    </div>
-
-    <div id="loading" class="container text-center d-none">
-        <div class="spinner"></div>
-        <p class="text-muted">인도 전역의 쇼핑몰에서 최저가를 찾는 중입니다...</p>
-    </div>
-
-    <div id="resultsContainer" class="results-container container mt-5 d-none">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="badge-new category-badge">NEW PRODUCTS</div>
-                <div id="newList"></div>
-            </div>
-            <div class="col-lg-6">
-                <div class="badge-used category-badge">USED / REFURBISHED</div>
-                <div id="usedList"></div>
-            </div>
-        </div>
-    </div>
-
-    <div id="noResults" class="container text-center my-5 d-none">
-        <i class="bi bi-search-heart text-muted" style="font-size: 3rem;"></i>
-        <h4 class="mt-3">검색 결과가 없습니다.</h4>
-        <p class="text-muted">모델명을 확인하거나 다른 검색어를 입력해 보세요.</p>
-    </div>
-
-    <div id="errorMessage" class="container text-center my-5 d-none">
-        <i class="bi bi-exclamation-triangle-fill text-danger" style="font-size: 3rem;"></i>
-        <h4 class="mt-3">검색 중 오류가 발생했습니다.</h4>
-        <p id="errorDetails" class="text-muted">상세 정보가 없습니다.</p>
-    </div>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <span class="footer-logo">BUYWISE INDIA</span>
-                    <p class="footer-text">
-                        BuyWise India는 인도 내 주요 쇼핑몰의 가격을 실시간으로 비교하여 최적의 구매처를 안내해 드립니다. <br>
-                        SerpApi를 통한 Google Shopping 데이터와 Gemini AI의 모델명 교정 기능을 제공합니다.
-                    </p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <p class="footer-text">
-                        본 서비스는 Gemini 무료 등급을 사용합니다.<br>
-                        입력하신 검색어는 서비스 개선을 위해 Google에 제공될 수 있습니다.<br>
-                        검색 한도는 하루에 12회로 제한되어 있습니다.<br>
-                        무료 한도를 초과하면 검색을 할 수 없습니다.<br>
-                    </p>
-                </div>
-            </div>
-            <div class="copyright text-center">
-                &copy; 2026 BuyWise India. All rights reserved.
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        const searchForm = document.getElementById('searchForm');
-        const queryInput = document.getElementById('queryInput');
-        const loading = document.getElementById('loading');
-        const resultsContainer = document.getElementById('resultsContainer');
-        const featuredContainer = document.getElementById('featuredContainer');
-        const newList = document.getElementById('newList');
-        const usedList = document.getElementById('usedList');
-        const noResults = document.getElementById('noResults');
-        const errorMessage = document.getElementById('errorMessage');
-        const errorDetails = document.getElementById('errorDetails');
-        const limitDisplay = document.getElementById('limitDisplay');
-        const correctedQueryDisplay = document.getElementById('correctedQuery');
-        const correctedQueryText = document.getElementById('correctedQueryText');
-        const limitNotice = document.getElementById('limitNotice');
-
-        // Initial load
-        window.addEventListener('DOMContentLoaded', () => {
-            fetchHealth();
-            fetchFeatured();
-        });
-
-        async function fetchHealth() {
-            try {
-                const res = await fetch('/api/health');
-                const data = await res.json();
-                limitDisplay.textContent = `Today: ${data.searchCount}/${data.dailyLimit}`;
-                limitDisplay.classList.remove('d-none');
-            } catch (e) {
-                console.error('Health check failed:', e);
-            }
-        }
-
-        async function fetchFeatured() {
-            try {
-                const res = await fetch('/api/featured');
-                const products = await res.json();
-                const list = document.getElementById('featuredList');
-
-                if (products.length === 0) {
-                    featuredContainer.classList.add('d-none');
-                    return;
-                }
-
-                products.forEach(p => {
-                    const col = document.createElement('div');
-                    col.className = 'col';
-                    col.innerHTML = `
-                        <div class="featured-card" onclick="doSearch('${p.title}')">
-                            <img src="${p.thumbnail || 'https://via.placeholder.com/150?text=Product'}" class="featured-img" alt="${p.title}">
-                            <div class="featured-name">${p.title}</div>
-                            <div class="featured-price">₹${p.price.toLocaleString()}</div>
-                        </div>
-                    `;
-                    list.appendChild(col);
-                });
-            } catch (e) {
-                console.error('Failed to fetch featured products:', e);
-                featuredContainer.classList.add('d-none');
-            }
-        }
-
-        function doSearch(q) {
-            queryInput.value = q;
-            searchForm.dispatchEvent(new Event('submit'));
-        }
-
-        searchForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const query = queryInput.value.trim();
-            if (!query) return;
-
-            // UI State
-            loading.classList.remove('d-none');
-            resultsContainer.classList.add('d-none');
-            featuredContainer.classList.add('d-none');
-            noResults.classList.add('d-none');
-            errorMessage.classList.add('d-none');
-            correctedQueryDisplay.classList.add('d-none');
-            newList.innerHTML = '';
-            usedList.innerHTML = '';
-
-            try {
-                const response = await fetch('/api/search', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ query })
-                });
-
-                if (response.status === 429) {
-                    const data = await response.json();
-                    limitNotice.classList.remove('d-none');
-                    return;
-                }
-
-                const data = await response.json();
-
-                if (data.query.toLowerCase() !== query.toLowerCase()) {
-                    correctedQueryText.textContent = data.query;
-                    correctedQueryDisplay.classList.remove('d-none');
-                }
-
-                if (data.new.length === 0 && data.used.length === 0) {
-                    noResults.classList.remove('d-none');
-                } else {
-                    renderList(data.new, newList, 'new');
-                    renderList(data.used, usedList, 'used');
-                    resultsContainer.classList.remove('d-none');
-                }
-
-                limitDisplay.textContent = `Today: ${data.searchCount}/${data.dailyLimit}`;
-
-            } catch (error) {
-                console.error('Search error:', error);
-                errorMessage.classList.remove('d-none');
-                if (error.message.includes('429')) {
-                    errorDetails.textContent = '오늘의 검색 한도를 초과했습니다. 내일 다시 시도해 주세요.';
-                } else if (error.message.includes('not_configured')) {
-                    errorDetails.textContent = '검색 기능이 설정되지 않았습니다. 서버 관리자에게 문의하세요.';
-                } else if (error.message.includes('upstream')) {
-                    errorDetails.textContent = '가격 정보 제공자가 응답하지 않습니다. 다시 시도해 주세요.';
-                } else {
-                    errorDetails.textContent = '검색 중 오류가 발생했습니다. 다시 시도해 주세요.';
-                }
-            } finally {
-                loading.classList.add('d-none');
-            }
-        });
-
-        function renderList(products, container, category) {
-            if (products.length === 0) {
-                container.innerHTML = `<div class="text-center py-5 text-muted small">${category === 'new' ? '새 제품이 없습니다.' : '중고/리퍼비시 제품이 없습니다.'}</div>`;
-                return;
-            }
-
-            products.forEach(p => {
-                const card = document.createElement('div');
-                card.className = 'product-card';
-                card.innerHTML = `
-                    <div class="row">
-                        <div class="col-4 col-sm-3 product-img-container">
-                            <img src="${p.thumbnail || 'https://via.placeholder.com/100?text=No+Image'}" class="product-img" alt="${p.title}">
-                        </div>
-                        <div class="col-8 col-sm-6 product-info">
-                            <div class="product-source">${p.source}</div>
-                            <div class="product-title">${p.title}</div>
-                            <div class="product-price">₹${p.price.toLocaleString()}</div>
-                        </div>
-                        <div class="col-12 col-sm-3 product-action">
-                            <a href="${p.link}" target="_blank" class="buy-now-btn">BUY NOW</a>
-                            ${p.via ? `<div class="via-google">via Google</div>` : ''}
-                        </div>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
-    </script>
+<div class="wrap">
+<div class="logo">BuyWise <i>India</i></div>
+<h1>Type a product. We find where it is cheapest.</h1>
+<p class="lead">Search any phone or product name. BuyWise compares stores in India and sends you to the one with the lowest price.</p>
+<div class="sbox"><input id="q" aria-label="Product name" placeholder="e.g. Samsung Galaxy S25, Cetaphil cleanser" autocomplete="off"><button class="go" id="go">Search</button></div>
+<div class="chips" id="ex"></div>
+<div id="st" aria-live="polite"></div>
+<div id="res"></div>
+<footer>Prices come from Google Shopping at the time shown and can differ at the store, so check the final price and the exact model (storage, colour) there. BuyWise may earn a commission when you buy through its links; this never changes the order of the results. Your search text is processed by an AI model (Google Gemini free tier, which may use it to improve Google products) to fix typos, and anonymous usage data is logged for this class project. Please do not type personal information. Product photos are thumbnails from Google Shopping.</footer>
+</div>
+<script>
+const $=s=>document.querySelector(s),inr=n=>'₹'+n.toLocaleString('en-IN');
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const norm=q=>q.toLowerCase().replace(/[^a-z0-9+ ]+/g,' ').replace(/\s+/g,' ').trim();
+const ok=u=>typeof u==='string'&&u.startsWith('https://');
+const SID=(()=>{try{let s=sessionStorage.bw_sid;if(!s){s=Math.random().toString(36).slice(2)+Date.now().toString(36);sessionStorage.bw_sid=s}return s}catch(e){return 'x'}})();
+const ev=(t,d)=>{try{navigator.sendBeacon('/api/event',new Blob([JSON.stringify({sid:SID,type:t,data:d})],{type:'application/json'}))}catch(e){}};
+const mem=(k,v)=>{try{if(v===undefined)return JSON.parse(sessionStorage.getItem('bw:'+k));sessionStorage.setItem('bw:'+k,JSON.stringify(v))}catch(e){return null}};
+let snap={items:{}};
+const DEF=['Samsung Galaxy S25 256GB','iPhone 16 128GB','OnePlus 13R','Cetaphil Gentle Skin Cleanser'];
+function chips(){const l=Object.values(snap.items||{}).filter(x=>x.q&&x.offers&&x.offers.length).map(x=>x.q);
+ $('#ex').innerHTML=(l.length?l:DEF).map(t=>`<button class="chip" data-q="${esc(t)}">${esc(t)}</button>`).join('')}
+fetch('/prices.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{snap=d||snap}).catch(()=>{}).finally(chips);
+const when=t=>new Date(t).toLocaleString('en-IN',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+function show(d,q){
+ const srt=l=>(l||[]).slice().sort((a,b)=>a.price-b.price||(/^amazon/i.test(b.store)?1:0)-(/^amazon/i.test(a.store)?1:0)),nw=srt(d.offers),us=srt(d.used),rf=us.filter(x=>x.cond==='Refurbished'),ud=us.filter(x=>x.cond!=='Refurbished');
+ if(!nw.length&&!us.length){$('#st').textContent='';$('#res').innerHTML=`<div class="empty">No prices found for “${esc(q)}”.<br>Try the full model name, for example “Samsung Galaxy S25 256GB”.</div>`;return}
+ const first=nw[0]||us[0],fixed=d.query&&norm(d.query)!==norm(q);
+ $('#st').innerHTML=(fixed?`Showing results for <b>${esc(d.query)}</b> (AI fixed your spelling). `:'')+(d.relaxed?'The exact model was not found, so these are the closest matches. ':'');
+ const img=ok(d.img)?`<img src="${esc(d.img)}" alt="" loading="lazy" referrerpolicy="no-referrer">`:`<div class="ph">${esc((d.query||q)[0]||'?')}</div>`;
+ const href=x=>ok(x.link)?esc(x.link):'https://www.google.com/search?tbm=shop&gl=in&q='+encodeURIComponent(x.title||q);
+ const rows=(list,showCond)=>list.map((x,j)=>`<div class="sr"><span class="sn">${esc(x.store)}${j?'':' <i class="lt">Lowest</i>'}</span><span class="tt" title="${esc(x.title)}">${showCond&&x.cond?esc(x.cond)+' · ':''}${esc(x.title)}${x.delivery?' · '+esc(x.delivery):''}${x.direct?'':' · via Google'}</span><a class="pr${j?'':' lo'}" data-s="${esc(x.store)}" data-p="${x.price}" href="${href(x)}" target="_blank" rel="noopener sponsored">${inr(x.price)}</a></div>`).join('');
+ const tier=(label,list,key,open)=>`<div class="tier"><span class="tl">${label}</span><strong class="tp">${list.length?inr(list[0].price):'—'}</strong>${list.length?`<button class="plus" data-t="${key}" aria-label="Show stores for ${label}">${open?'−':'+'}</button>`:'<span></span>'}<span class="tc">${list.length?list.length+' store'+(list.length>1?'s':''):'none found'}</span></div>
+  <div class="tlist" id="t-${key}"${open?'':' hidden'}>${rows(list,false)}${key!=='new'&&list.length?'<div class="note">Condition and warranty vary by seller. Check the grade, the warranty and, for phones, the battery health before you buy.</div>':''}</div>`;
+ const lo=nw[0];
+ const top=lo?`<div class="lp"><span>Lowest price · New</span><strong>${inr(lo.price)}</strong></div>
+  <a class="buy" data-s="${esc(lo.store)}" data-p="${lo.price}" href="${href(lo)}" target="_blank" rel="noopener sponsored">Buy at lowest price · ${esc(lo.store)}${lo.direct?'':' (via Google)'}</a>`
+  :`<div class="lp"><span>Lowest price · New</span><strong class="na">—</strong></div><div class="none">No new listings found for this search. See used and refurbished options below.</div>`;
+ $('#res').innerHTML=`<article class="card"><div class="im">${img}</div>
+ <div><h2>${esc(first.title||d.query||q)}</h2><div class="sub">Cheapest listing found. Other variants (storage, colour) may cost differently, so check the title.</div></div>
+ <div>${top}<div class="rt"><span>Prices by condition</span><span>checked ${esc(when(d.checkedAt))}</span></div>
+ ${tier('New',nw,'new',!!nw.length)}${tier('Refurbished',rf,'refurb',!nw.length&&!!rf.length)}${tier('Used',ud,'used',!nw.length&&!rf.length&&!!ud.length)}</div></article>
+ <div class="rate"><span>Was this result useful?</span>${[1,2,3,4,5].map(n=>`<button data-r="${n}">${n}</button>`).join('')}</div>`;
+ ev('shortlist',{q:q.slice(0,100),query:d.query||'',new:nw.length,refurb:rf.length,used:ud.length,lowest:lo?lo.price:null,ai:!!d.ai,relaxed:!!d.relaxed});
+}
+async function search(q){
+ q=(q||'').trim();if(q.length<2)return;$('#q').value=q;ev('query',{text:q.slice(0,100)});
+ $('#st').textContent='Searching stores…';$('#res').innerHTML='';
+ const k=norm(q);let d=(snap.items&&snap.items[k])||mem(k);   // examples and searches already made in this visit show instantly
+ if(!d){
+  const fail=m=>{$('#st').textContent='';$('#res').innerHTML=`<div class="empty">${m}</div>`};
+  let r;try{r=await fetch('/api/search',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({q})})}catch(e){return fail('Could not reach the server. Please check your connection and try again.')}
+  try{d=await r.json()}catch(e){return fail('The search service was not found on the server (the server files may need updating).')}
+  if(r.ok)mem(k,d);
+  if(!r.ok){const m={limit:'The free daily search limit has been reached. Please try again tomorrow, or tap one of the example searches.',busy:'Too many searches. Please wait a few minutes.',not_configured:'Search is not set up yet: the SerpApi key is missing on the server.',upstream:'The price source did not respond (it may be out of free searches). Please try again later.'};return fail(m[d.error]||'Search is unavailable right now. Please try again later.')}
+ }
+ show(d,q);
+}
+$('#go').onclick=()=>search($('#q').value);$('#q').addEventListener('keydown',e=>{if(e.key==='Enter')search($('#q').value)});
+document.addEventListener('click',e=>{const t=e.target;
+ if(t.dataset.q)search(t.dataset.q);
+ if(t.dataset.t){const el=$('#t-'+t.dataset.t);if(el){el.hidden=!el.hidden;t.textContent=el.hidden?'+':'−'}}
+ if(t.dataset.r){ev('rating',{v:+t.dataset.r});t.parentNode.innerHTML='Thanks for the feedback!'}
+ const a=t.closest&&t.closest('a[data-s]');if(a)ev('clickout',{store:a.dataset.s,price:+a.dataset.p,q:$('#q').value.slice(0,100)})});
+</script>
 </body>
 </html>
