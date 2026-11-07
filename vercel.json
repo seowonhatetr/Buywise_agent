@@ -1,1 +1,1 @@
-{ "outputDirectory": "public", "functions": { "api/*.js": { "maxDuration": 20 } } }
+{ "outputDirectory": "public", "functions": { "api/*.js": { "maxDuration": 20, "includeFiles": "public/prices.json" } } }
