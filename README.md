@@ -1,4 +1,4 @@
-# BuyWise India – 제품명을 치면 가장 싼 쇼핑몰로 연결 (다나와 방식)
+# SolomonPrice India – 제품명을 치면 가장 싼 쇼핑몰로 연결 (다나와 방식)
 
 ## 동작
 1. 사용자가 제품명을 입력한다. 예: `samsungs23`, `Samsung Galaxy S25 256GB`, `cetaphil cleanser`

@@ -18,4 +18,4 @@ http.createServer(async (req, res) => {
   res.setHeader('content-type', MIME[path.extname(f)] || 'application/octet-stream');
   if (f.endsWith('prices.json')) res.setHeader('cache-control', 'no-cache');
   fs.createReadStream(f).pipe(res);
-}).listen(process.env.PORT || 3000, () => console.log('BuyWise running on port ' + (process.env.PORT || 3000)));
+}).listen(process.env.PORT || 3000, () => console.log('SolomonPrice running on port ' + (process.env.PORT || 3000)));
