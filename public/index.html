@@ -78,7 +78,8 @@ function chips(){const l=Object.values(snap.items||{}).filter(x=>x.q&&x.offers&&
  $('#ex').innerHTML=(l.length?l:DEF).map(t=>`<button class="chip" data-q="${esc(t)}">${esc(t)}</button>`).join('')}
 fetch('/prices.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{snap=d||snap}).catch(()=>{}).finally(chips);
 const when=t=>new Date(t).toLocaleString('en-IN',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
-function show(d,q){
+function show(d,q,quiet){   // quiet = redraw after the seller links arrive: keep open/closed lists and the rating, do not log again
+ const was=quiet?[...document.querySelectorAll('.tlist')].map(e=>[e.id,e.hidden]):[],rated=quiet&&/^Thanks/.test(($('.rate')||{}).textContent||'');
  const srt=l=>(l||[]).slice().sort((a,b)=>a.price-b.price||(/^amazon/i.test(b.store)?1:0)-(/^amazon/i.test(a.store)?1:0)),nw=srt(d.offers),us=srt(d.used),rf=us.filter(x=>x.cond==='Refurbished'),ud=us.filter(x=>x.cond!=='Refurbished');
  if(!nw.length&&!us.length){$('#st').textContent='';$('#res').innerHTML=`<div class="empty">No prices found for “${esc(q)}”.<br>Try the full model name, for example “Samsung Galaxy S25 256GB”.</div>`;return}
  const first=nw[0]||us[0],fixed=d.query&&norm(d.query)!==norm(q);
@@ -97,20 +98,30 @@ function show(d,q){
  <div>${top}<div class="rt"><span>Prices by condition</span><span>checked ${esc(when(d.checkedAt))}</span></div>
  ${tier('New',nw,'new',!!nw.length)}${tier('Refurbished',rf,'refurb',!nw.length&&!!rf.length)}${tier('Used',ud,'used',!nw.length&&!rf.length&&!!ud.length)}</div></article>
  <div class="rate"><span>Was this result useful?</span>${[1,2,3,4,5].map(n=>`<button data-r="${n}">${n}</button>`).join('')}</div>`;
- ev('shortlist',{q:q.slice(0,100),query:d.query||'',new:nw.length,refurb:rf.length,used:ud.length,lowest:lo?lo.price:null,ai:!!d.ai,relaxed:!!d.relaxed});
+ if(quiet){was.forEach(([id,h])=>{const el=$('#'+id),b=document.querySelector('[data-t="'+id.slice(2)+'"]');if(el){el.hidden=h;if(b)b.textContent=h?'+':'−'}});if(rated&&$('.rate'))$('.rate').innerHTML='Thanks for the feedback!'}
+ else ev('shortlist',{q:q.slice(0,100),query:d.query||'',new:nw.length,refurb:rf.length,used:ud.length,lowest:lo?lo.price:null,ai:!!d.ai,relaxed:!!d.relaxed});
+}
+let run=0;   // newest search; older answers that arrive late are ignored
+async function upgrade(q,k,my){   // 2nd request: swap the Google links for the sellers' own links
+ try{const r=await fetch('/api/search',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({q,links:true})});
+  if(!r.ok)return;const d=await r.json();mem(k,d);if(my===run)show(d,q,true)}catch(e){}
 }
 async function search(q){
  q=(q||'').trim();if(q.length<2)return;$('#q').value=q;ev('query',{text:q.slice(0,100)});
- $('#st').textContent='Searching stores…';$('#res').innerHTML='';
+ const my=++run;$('#st').textContent='Searching stores…';$('#res').innerHTML='';
+ setTimeout(()=>{if(my===run&&!$('#res').innerHTML)$('#st').textContent='Still searching… a new search can take a few seconds. The example searches above are instant.'},4000);
  const k=norm(q);let d=(snap.items&&snap.items[k])||mem(k);   // examples and searches already made in this visit show instantly
  if(!d){
   const fail=m=>{$('#st').textContent='';$('#res').innerHTML=`<div class="empty">${m}</div>`};
   let r;try{r=await fetch('/api/search',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({q})})}catch(e){return fail('Could not reach the server. Please check your connection and try again.')}
   try{d=await r.json()}catch(e){return fail('The search service was not found on the server (the server files may need updating).')}
   if(r.ok)mem(k,d);
+  if(my!==run)return;
   if(!r.ok){const m={limit:'The free daily search limit has been reached. Please try again tomorrow, or tap one of the example searches.',busy:'Too many searches. Please wait a few minutes.',not_configured:'Search is not set up yet: the SerpApi key is missing on the server.',upstream:'The price source did not respond (it may be out of free searches). Please try again later.'};return fail(m[d.error]||'Search is unavailable right now. Please try again later.')}
  }
+ if(my!==run)return;
  show(d,q);
+ if(d.linked===false&&(d.offers||[]).some(o=>!o.direct))upgrade(q,k,my);
 }
 $('#go').onclick=()=>search($('#q').value);$('#q').addEventListener('keydown',e=>{if(e.key==='Enter')search($('#q').value)});
 document.addEventListener('click',e=>{const t=e.target;
