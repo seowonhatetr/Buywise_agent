@@ -1,1 +1,323 @@
-{"checkedAt":null,"items":{}}
+{
+ "checkedAt": "2026-11-09T02:49:40.787Z",
+ "items": {
+  "samsung galaxy s25 256gb": {
+   "q": "Samsung Galaxy S25 256GB",
+   "relaxed": false,
+   "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcR9Es_sjCT2QK7RtfuJ7FhxGFuBRNx1aZppOtVhSnwhILRwJQJl6nSVk_wvoZ78_WQKvgkAsFRRfAQcQ2L7bZwXuFdeWwHr",
+   "checkedAt": 1794192550584,
+   "offers": [
+    {
+     "store": "amazon.in",
+     "price": 65000,
+     "title": "Samsung Galaxy S25 5G",
+     "link": "https://www.amazon.in/Samsung-Galaxy-Smartphone-Icyblue-Storage/dp/B0DVC7C81C",
+     "direct": true,
+     "delivery": "",
+     "cond": "New"
+    },
+    {
+     "store": "cainid.in",
+     "price": 74999,
+     "title": "Samsung Galaxy S25 - 256 GB - Icy Blue",
+     "link": "https://www.cainid.in/product/33035167/Samsung-Galaxy-S25?vid=7204542&utm_source=GMC",
+     "direct": true,
+     "delivery": "Free",
+     "cond": "New"
+    },
+    {
+     "store": "Vijay Sales",
+     "price": 79990,
+     "title": "Samsung Galaxy S25 5G",
+     "link": "https://www.vijaysales.com/p/P237290/237287/samsung-galaxy-s25-5g-12gb-ram-256gb-storage-icyblue",
+     "direct": true,
+     "delivery": "Free",
+     "cond": "New"
+    },
+    {
+     "store": "Parvez Mobile Master",
+     "price": 80999,
+     "title": "Samsung Galaxy S25 - 256 GB - Blueblack",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Samsung Galaxy S25 256GB&prds=catalogid:3066221750674837594,productid:2394834165061364218,headlineOfferDocid:2793654437267641589,imageDocid:3367998904532898184,rds:PC_7998131059683023653|PROD_PC_7998131059683023653,gpcid:7998131059683023653,mid:576462859883472853,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "Free delivery",
+     "cond": "New"
+    }
+   ],
+   "used": []
+  },
+  "iphone 16 128gb": {
+   "q": "iPhone 16 128GB",
+   "relaxed": false,
+   "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQaw0-J53SU1RWMoTujDCmKql_33J_pg07Oe9IPLl9bcII7j-x2-_6BeXwohBR-wqOyaogFEb-UM0wU6V7R4wz93IftOhE4rQ",
+   "checkedAt": 1794192553147,
+   "offers": [
+    {
+     "store": "Reliance Digital",
+     "price": 69900,
+     "title": "Apple iPhone 16",
+     "link": "https://www.reliancedigital.in/product/apple-iphone-16-128-gb-black-m0xrrm-8590265",
+     "direct": true,
+     "delivery": "Free",
+     "cond": "New"
+    },
+    {
+     "store": "iVenus - Apple Premium Reseller",
+     "price": 69900,
+     "title": "Apple iPhone 16",
+     "link": "https://ivenus.in/product/iphone-16/?attribute_pa_color=black&attribute_pa_storage=128-gb&srsltid=AYCX9vJc8_LBaJO8vbIwi8pUydolOzhZJMonuxYm8ZIHpphWa0Na0awg8Go",
+     "direct": true,
+     "delivery": "Free",
+     "cond": "New"
+    },
+    {
+     "store": "Amazon.in",
+     "price": 79990,
+     "title": "Apple iPhone 16",
+     "link": "https://www.amazon.in/iPhone-16-128-GB-Control/dp/B0DGJHBX5Y?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=AJ6SIZC8YQDZX",
+     "direct": true,
+     "delivery": "Free",
+     "cond": "New"
+    },
+    {
+     "store": "Croma",
+     "price": 84990,
+     "title": "Apple iPhone 16",
+     "link": "https://www.croma.com/apple-iphone-16-128gb-black-/p/324488?srsltid=AYCX9vIwcqygbMg60WixamSb4TAQOICJCTKcKkkyzbGIHdaoACzzBz7__Fc",
+     "direct": true,
+     "delivery": "+ ₹99",
+     "cond": "New"
+    },
+    {
+     "store": "Etoren.com",
+     "price": 115645,
+     "title": "Apple iPhone 16 - 128 GB - Ultramarine - Unlocked",
+     "link": "https://www.etoren.com/products/apple-iphone-16-5g-a3288-128gb-ultramarine-dual-nano-sim?utm_source=google&utm_medium=free%20shopping&utm_campaign=free%20shopping&utm_content=free%20google%20shopping%20clicks",
+     "direct": true,
+     "delivery": "+ ₹2,630.44",
+     "cond": "New"
+    }
+   ],
+   "used": [
+    {
+     "store": "FoneZone.com",
+     "price": 47240,
+     "title": "Smartphone apple iPhone 15 6,1\" a16 128 gb green",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=iPhone 16 128GB&prds=catalogid:16760016680769612799,productid:5219779290042977008,headlineOfferDocid:8376455447607317267,imageDocid:14192940648421655046,rds:PC_4460477009793411471|PROD_PC_4460477009793411471,gpcid:4460477009793411471,mid:576462575899525033,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "",
+     "cond": "Refurbished"
+    }
+   ]
+  },
+  "oneplus 13r": {
+   "q": "OnePlus 13R",
+   "relaxed": false,
+   "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTI0HBn1OM5F0X0V_IpUT22pprjwHUAhMDtOrubQsdjFkipz4TtA7_Bo2_-kIkhMxbJD-bCMh2cZjSZiK53Qxyl14-pGOAJ7CN5mLxeede8u4M02U2mHg8C",
+   "checkedAt": 1794192558746,
+   "offers": [
+    {
+     "store": "EW Shopping",
+     "price": 46799,
+     "title": "Oneplus 13r 5g (512 Gb, 16 Gb Ram)",
+     "link": "https://ewshopping.com/product/oneplus-13r-5g-512-gb,-16-gb-ram--electronics-mobile--accessories-mobile-mobile-accessories-oneplus-oneplus?srsltid=AYCX9vJZn6_7GEOzUZ_ZIFA9yuDhmnase-lXiLyWdYO1aanWyv9sBjVmuiI",
+     "direct": true,
+     "delivery": "Free",
+     "cond": "New"
+    },
+    {
+     "store": "renga",
+     "price": 49999,
+     "title": "OnePlus 13R | Smarter with OnePlus AI | Lifetime Display Warranty (16GB RAM, 512GB Storage Astral Trail)",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=OnePlus 13R&prds=productid:485989466983064929,headlineOfferDocid:485989466983064929,imageDocid:5473288529282045174,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "Free delivery",
+     "cond": "New"
+    },
+    {
+     "store": "desertcart.in",
+     "price": 71673,
+     "title": "OnePlus 13R | Smarter with OnePlus AI (16GB RAM, 512GB Storage Astral Trail)",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=OnePlus 13R&prds=productid:12953124799404523744,headlineOfferDocid:12953124799404523744,imageDocid:3153517277485524691,rds:PC_5596116250617377571|PROD_PC_5596116250617377571,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "Free delivery",
+     "cond": "New"
+    },
+    {
+     "store": "ubuy.co.in",
+     "price": 109648,
+     "title": "OnePlus 13R Smarter with OnePlus AI (12GB RAM, 256GB Storage Nebula Noir)",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=OnePlus 13R&prds=productid:16200352908788728803,headlineOfferDocid:16200352908788728803,imageDocid:17573193318163712203,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "",
+     "cond": "New"
+    }
+   ],
+   "used": [
+    {
+     "store": "GudFast",
+     "price": 32999,
+     "title": "Oneplus 13r 256gb Black",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=OnePlus 13R&prds=catalogid:6737114788288396029,productid:12807544175680639153,headlineOfferDocid:4184197281248669626,imageDocid:7065648520530004343,rds:PC_11128901567194075919|PROD_PC_11128901567194075919,gpcid:11128901567194075919,mid:576462815347211341,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "Free delivery by Thu",
+     "cond": "Refurbished"
+    },
+    {
+     "store": "EMI Snapmint",
+     "price": 42199,
+     "title": "Oneplus 13R 5G Refurbished (EMI: ₹ 2989 / mon)",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=OnePlus 13R&prds=productid:17402470573323625088,headlineOfferDocid:17402470573323625088,imageDocid:5028059640324376986,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "Free delivery",
+     "cond": "Refurbished"
+    }
+   ]
+  },
+  "redmi note 14 pro+ 5g": {
+   "q": "Redmi Note 14 Pro+ 5G",
+   "relaxed": false,
+   "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQq5kDmfnX-DpMg3AZHALJ1mkvtp5EuDrzwk4uxOjza8Flpvxj_jyUHgLtoHxaTs6yKibKKdGTH4u2fK0aRIq6nG5u0tmiBSt_HCfW-uVMiJoFxJt4tcmdUyw",
+   "checkedAt": 1794192564797,
+   "offers": [
+    {
+     "store": "desertcart.in",
+     "price": 57323,
+     "title": "Xiaomi Redmi Note 14 Pro+ 5G Mobile, Lavender Purple - UAE Version",
+     "link": "https://www.desertcart.in/products/692025963-xiaomi-redmi-note-14-pro-5g-mobile-lavender-purple-uae-version",
+     "direct": true,
+     "delivery": "Free",
+     "cond": "New"
+    },
+    {
+     "store": "ubuy.co.in",
+     "price": 66315,
+     "title": "Redmi Note 14 Pro+ Plus 5G Titanium Black 512GB 12GB RAM Global Version...",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Redmi Note 14 Pro+ 5G&prds=productid:8502822986013958829,headlineOfferDocid:8502822986013958829,imageDocid:3245845467615437064,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "",
+     "cond": "New"
+    }
+   ],
+   "used": [
+    {
+     "store": "Mobiplex",
+     "price": 17999,
+     "title": "XIAOMI Redmi Note 14 Pro 5G + 4G LTE NFC 6.67\" 120Hz 200MP Pro AI Camera Model 24090RA29G Unlocked Dual Sim",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Redmi Note 14 Pro+ 5G&prds=catalogid:817829587616820814,productid:15019057330275819929,headlineOfferDocid:85634941203601982,imageDocid:10246130232895889467,rds:PC_3455226557126835921|PROD_PC_3455226557126835921,gpcid:3455226557126835921,mid:576462915927889780,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "",
+     "cond": "Used"
+    },
+    {
+     "store": "FoneZone.com",
+     "price": 26561,
+     "title": "Xiaomi Redmi Note 14 Pro+ 5G 2024, 256GB-12GB RAM / Purple",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Redmi Note 14 Pro+ 5G&prds=productid:134312292021668406,headlineOfferDocid:134312292021668406,imageDocid:12652039024990232131,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "",
+     "cond": "Refurbished"
+    }
+   ]
+  },
+  "cetaphil gentle skin cleanser": {
+   "q": "Cetaphil Gentle Skin Cleanser",
+   "relaxed": false,
+   "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ86aHk-otxFUsPoAkv5tdd1Eihye2_0YP7WQww3SXFqx2S6YcladEIG-Kjp7XvIPYn8tRQ6lbGwqJUoX4RpvikKbYXHaL_X3mCyX8l8QpR_vIf9jNrZsH8",
+   "checkedAt": 1794192567739,
+   "offers": [
+    {
+     "store": "Nykaa",
+     "price": 418,
+     "title": "Cetaphil Gentle Skin Cleanser For Normal, Dry Skin Hydrates And Softens (118ml) At Nykaa, Best Beauty Products Online At",
+     "link": "https://www.nykaa.com/cetaphil-cleansing-lotion/p/22032?ptype=product&srsltid=AYCX9vLgx2-cob2AiQ7NhHSOTh35vzB0rh9zhGtTsFut7su6PVNZa6PitKo",
+     "direct": true,
+     "delivery": "Free",
+     "cond": "New"
+    },
+    {
+     "store": "Purplle.com - Purplle Beauty",
+     "price": 418,
+     "title": "Cetaphil Gentle Skin Cleanser Travel-Size 118ml",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Cetaphil Gentle Skin Cleanser&prds=catalogid:10430928656463875454,productid:9961326542724374536,headlineOfferDocid:3517370279837968379,imageDocid:15475967840597287707,rds:PC_8572412196574812439|PROD_PC_8572412196574812439,gpcid:7707042924207597411,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "Free delivery",
+     "cond": "New"
+    },
+    {
+     "store": "Netpharmacy",
+     "price": 519,
+     "title": "Cetaphil Gentle Skin Cleanser",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Cetaphil Gentle Skin Cleanser&prds=catalogid:300642563616876860,productid:11070357477287371664,headlineOfferDocid:5929175605242042507,imageDocid:7555637004196809074,rds:PC_13256282780283510159|PROD_PC_13256282780283510159,gpcid:13109530900753157180,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "",
+     "cond": "New"
+    },
+    {
+     "store": "DMart Ready",
+     "price": 639,
+     "title": "Cetaphil Gentle Skin Cleanser 236ml",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Cetaphil Gentle Skin Cleanser&prds=catalogid:86138089447010208,productid:15662395886321629016,headlineOfferDocid:10994774337690541590,imageDocid:13719416782098694325,rds:PC_8572412196574812439|PROD_PC_8572412196574812439,gpcid:8572412196574812439,mid:576462567454426025,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "Free delivery on ₹3,000+",
+     "cond": "New"
+    },
+    {
+     "store": "Purplle.com - Purplle- MP",
+     "price": 687,
+     "title": "Cetaphil Hydrating Gentle Cleanser Liquid for Non-Irritating Care of Dry & Sensitive Skin | facial face cleanser body mo",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Cetaphil Gentle Skin Cleanser&prds=productid:1615058065608280503,headlineOfferDocid:1615058065608280503,imageDocid:10535889423283840835,rds:PC_6239114673959995786|PROD_PC_6239114673959995786,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "Free delivery",
+     "cond": "New"
+    },
+    {
+     "store": "1mg",
+     "price": 711,
+     "title": "Cetaphil Gentle Skin Cleanser For Dry To Normal Sensitive Skin",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Cetaphil Gentle Skin Cleanser&prds=productid:12916261897570043180,headlineOfferDocid:12916261897570043180,imageDocid:12489123446711918072,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "Free delivery by Wed",
+     "cond": "New"
+    }
+   ],
+   "used": []
+  },
+  "minimalist 10 niacinamide serum": {
+   "q": "Minimalist 10% Niacinamide Serum",
+   "relaxed": false,
+   "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRA8KKn-KFmJp35yGA8isJO2GQbNHlHi5qgB33zK6dE-q8fdY8Munec0Ykli6-S__Arct2JRvW6XK7vxvtBrqQpw_5KLu9NmmFxOBdOJHOZVBF8CrdSkiVFaA",
+   "checkedAt": 1794192575152,
+   "offers": [
+    {
+     "store": "Minimalist",
+     "price": 899,
+     "title": "Minimalist Oil Control & Anti-Acne 10% Niacinamide Face Serum with Zinc | Skin Clarifying,Blemishes & Pore Care for All ",
+     "link": "https://beminimalist.co/products/niacinamide-10-with-matmarine?currency=INR&country=IN&variant=44802331181217&utm_source=google&utm_medium=cpc&utm_campaign=Google%20Shopping&stkn=f4faea6d89b6&srsltid=AYCX9vKPcGVLSYiEdaEYJG032LM19pRSnU4GVuCy-mJi9yEQblvW9xgpbXY",
+     "direct": true,
+     "delivery": "Free",
+     "cond": "New"
+    }
+   ],
+   "used": []
+  },
+  "neutrogena ultra sheer sunscreen": {
+   "q": "Neutrogena Ultra Sheer Sunscreen",
+   "relaxed": false,
+   "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQ6H-uMOWAGIt2VyextGZpplqoAjkBbtdTJqmpDep84cnZXbJx5zAZJ2fS5Ae7Q5T2wCcMsTsiEJK7SJ6YtfXwZLf4PpoALXg",
+   "checkedAt": 1794192579050,
+   "offers": [
+    {
+     "store": "Desertcart.ae",
+     "price": 6242,
+     "title": "Ultra Sheer Dry Touch Sunscreen Lotion SPF 45, 3 x 3 fl. oz",
+     "link": "https://www.desertcart.ae/products/764931860-ultra-sheer-dry-touch-sunscreen-lotion-spf-45-3-x-3-fl-oz",
+     "direct": true,
+     "delivery": "Free",
+     "cond": "New"
+    }
+   ],
+   "used": []
+  }
+ }
+}
